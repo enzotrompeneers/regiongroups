@@ -1,6 +1,6 @@
 import Notification from './components/Notification';
 
-new Notification('debugging').asAlert();
+//new Notification('debugging').asAlert();
 
 /**
  * First we will load all of this project's JavaScript dependencies which

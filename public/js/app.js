@@ -67,7 +67,8 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+__webpack_require__(1);
+module.exports = __webpack_require__(3);
 
 
 /***/ }),
@@ -79,7 +80,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Notification__ = __webpack_require__(2);
 
 
-new __WEBPACK_IMPORTED_MODULE_0__components_Notification__["a" /* default */]('debugging').asAlert();
+//new Notification('debugging').asAlert();
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -129,7 +130,13 @@ var _class = function () {
     return _class;
 }();
 
-/* harmony default export */ __webpack_exports__["a"] = (_class);
+/* unused harmony default export */ var _unused_webpack_default_export = (_class);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
