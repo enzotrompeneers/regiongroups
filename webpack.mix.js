@@ -5,4 +5,5 @@ mix.js('resources/assets/js/app.js', 'js')
    .browserSync({
         proxy: 'regiongroups.test/',
         port: 8000
-    });
+    })
+    .version();
