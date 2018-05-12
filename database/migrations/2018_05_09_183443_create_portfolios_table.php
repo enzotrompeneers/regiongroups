@@ -21,6 +21,7 @@ class CreatePortfoliosTable extends Migration
             $table->string('street', 255);
             $table->string('housenumber', 255);
             $table->string('postal_code', 255);
+            $table->string('city', 255);
             $table->string('country', 255);
             $table->string('phone', 255);
             $table->string('email', 255);
