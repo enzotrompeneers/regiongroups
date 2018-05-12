@@ -2,9 +2,9 @@
 
 namespace App;
 
-class Rating extends Model
+class Review extends Model
 {
-    public function Portfolio()
+    public function portfolio()
     {
         return $this->belongsTo(Portfolio::class);
     }
