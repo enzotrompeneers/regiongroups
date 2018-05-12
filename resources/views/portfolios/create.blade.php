@@ -3,7 +3,7 @@
 @section('content')
     <h1>Create portfolio page</h1>
 
-    <form action="/portfolio" method="post">
+    <form action="/portfolios" method="post">
         {{ csrf_field() }}
         <label for="logo">Logo</label>
         <input type="text" id="logo" name="logo" placeholder="Logo">

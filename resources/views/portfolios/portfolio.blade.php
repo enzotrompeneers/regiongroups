@@ -1,4 +1,4 @@
-<a href="/portfolio/{{ $portfolio->id }}">
+<a href="/portfolios/{{ $portfolio->id }}">
     <h3>{{ $portfolio->name }}</h3>
 </a>
 <p>{{ $portfolio->description }}</p>
