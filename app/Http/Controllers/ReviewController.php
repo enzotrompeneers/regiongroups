@@ -9,12 +9,15 @@ class ReviewController extends Controller
 {
     public function store(Portfolio $portfolio)
     {
+        // validation
         $this->validate(request(), [
-            'rating' => 'required|max:1',
+            'rating' => 'required|string|max:1',
             'body' => 'required|min:2',
         ]);
 
-        $portfolio->addReview(request('rating'), request('body'));
+        // add review to the portfolio
+        $requests = request(['rating', 'body']);
+        $portfolio->addReview($requests);
 
         return back();
     }

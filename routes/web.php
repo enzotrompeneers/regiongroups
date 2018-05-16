@@ -1,17 +1,14 @@
 <?php
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');;
 
-//Route::resource('portfolios', 'PortfolioController');
-Route::get('portfolios', 'PortfolioController@index');
-Route::get('portfolios/nieuw', 'PortfolioController@create');
-Route::post('portfolios', 'PortfolioController@store');
-Route::get('portfolios/{portfolio}', 'PortfolioController@show');
+Auth::routes();
 
-Route::post('portfolios/{portfolio}/reviews', 'ReviewController@store');
+Route::get('portfolios', 'PortfolioController@index')->name('portfolio.index');
+Route::get('portfolios/nieuw', 'PortfolioController@create')->name('portfolio.create');
+Route::post('portfolios', 'PortfolioController@store')->name('portfolio.store');
+Route::get('portfolios/{portfolio}', 'PortfolioController@show')->name('portfolio.show');
 
-Route::get('zoeken', 'PortfolioController@index');
+Route::post('portfolios/{portfolio}/reviews', 'ReviewController@store')->name('review.store');
 
-Route::get('registreren', function () {
-    return view('partials.register');
-});
+Route::get('zoeken', 'PortfolioController@index')->name('search');
