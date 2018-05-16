@@ -15,7 +15,8 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('logo', 255);
+            $table->integer('user_id');
+            $table->string('logo', 255)->nullable();
             $table->string('name', 255);
             $table->text('description');
             $table->string('street', 255);
@@ -25,11 +26,8 @@ class CreatePortfoliosTable extends Migration
             $table->string('country', 255);
             $table->string('phone', 255);
             $table->string('email', 255);
-            $table->string('external', 255);
-
-            $table->boolean('subscription');
+            $table->string('external', 255)->nullable();
             $table->string('layout', 1);
-
             $table->timestamps();
         });
     }
