@@ -6,6 +6,7 @@
     </head>
     <body>
         @include('layouts.web.header')
+        @include('layouts.web.navigation')
         @yield('content')
         @include('layouts.web.footer')
         @include('layouts.web.scripts')
