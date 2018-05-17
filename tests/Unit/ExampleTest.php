@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Portfolio;
 
 class ExampleTest extends TestCase
 {
@@ -14,6 +14,13 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+        $first = factory(Portfolio::class)->create();
+        $second = factory(Portfolio::class)->create([
+            'created_at' => \Carbon\Carbon::now()->subMonth()
+        ]);
+
+        $portfolio = Portfolio::groupCities();
+
+        $this->assertEquals(2, $portfolio);
     }
 }
