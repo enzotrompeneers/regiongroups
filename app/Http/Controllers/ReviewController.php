@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Portfolio;
+use App\Http\Requests\ReviewRequest;
 
 class ReviewController extends Controller
 {
-    public function store(Portfolio $portfolio)
+    public function __construct()
     {
-        // validation
-        $this->validate(request(), [
-            'rating' => 'required|string|max:1',
-            'body' => 'required|min:2',
-        ]);
+        $this->middleware('auth');
+    }
 
+    public function store(ReviewRequest $requests, Portfolio $portfolio)
+    {
         // add review to the portfolio
-        $requests = request(['rating', 'body']);
-        $portfolio->addReview($requests);
+        $portfolio->addReview($requests->toArray());
 
         return back();
     }

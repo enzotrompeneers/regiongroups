@@ -43,11 +43,11 @@
             {{ csrf_field() }}
 
             <label for="rating">Rating</label>
-            <input type="text" id="rating" name="rating" placeholder="Rating" required>
+        <input type="text" id="rating" value="{{ old('rating') }}" name="rating" placeholder="Rating" required>
             <br>
 
             <label for="body">Review</label>
-            <textarea name="body" id="body" required></textarea>
+            <textarea name="body" id="body" required>{{ old('body') }}</textarea>
             <br>
 
             <button type="submit">Review toevoegen</button>
