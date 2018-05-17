@@ -1,6 +1,7 @@
 @extends('layouts.web.master')
 
 @section('content')
+    <a href="{{ URL::previous() }}">Ga Terug</a>
     <h2>{{ $portfolio->name }}</h3>
     <p>
         Logo: <br>
