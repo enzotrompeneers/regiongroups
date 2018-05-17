@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Portfolio;
+use App\Http\Requests\PortfolioRequest;
 
 class PortfolioController extends Controller
 {
@@ -26,26 +27,9 @@ class PortfolioController extends Controller
         return view('portfolios.create');
     }
 
-    public function store(Request $request)
+    public function store(PortfolioRequest $requests)
     {
-        // validation
-        $this->validate(request(), [
-            'logo' => 'nullable|max:255|image',
-            'name' => 'required|string|max:255',
-            'description' => 'required|min:10',
-            'street' => 'required|string|max:255',
-            'housenumber' => 'required|string|max:255',
-            'postal_code' => 'required|string|min:4|max:255',
-            'city' => 'required|string|max:255',
-            'country' => 'required|string|max:255',
-            'phone' => 'required|string|min:3|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'external' => 'nullable|max:255|active_url'
-        ]);
-
-        // add review to the portfolio
-        $requests = request(['logo', 'name', 'description', 'street', 'housenumber', 'postal_code', 'city', 'country', 'phone', 'email', 'external']);
-        auth()->user()->addPortfolio($requests);
+        auth()->user()->addPortfolio($requests->toArray());
 
         return redirect('/');
     }
