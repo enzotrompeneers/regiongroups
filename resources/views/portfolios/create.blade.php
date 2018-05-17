@@ -14,7 +14,7 @@
         <br>
 
         <label for="description">Beschrijving</label>
-        <textarea name="description" id="description" value="{{ old('description') }}"></textarea>
+        <textarea name="description" id="description">{{ old('description') }}</textarea>
         <br>
 
         <label for="street">Straat</label>
