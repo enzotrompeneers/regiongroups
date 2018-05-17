@@ -15,10 +15,13 @@ class PortfolioController extends Controller
 
     public function index()
     {
-        // get all portfolios
-        $portfolios = Portfolio::getAll();
+        // get all the portfolios
+        $portfolios = Portfolio::getAll()->get();
 
-        return view('portfolios.index', compact('portfolios'));
+        // group portfolios by city
+        $cities = Portfolio::groupCities();
+
+        return view('home.index', compact('portfolios', 'cities'));
     }
 
     public function create()

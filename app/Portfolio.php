@@ -16,7 +16,20 @@ class Portfolio extends Model
 
     public static function getAll()
     {
-        return static::latest()->get();
+        return static::latest();
+    }
+
+    public function scopeFilterCity($query, $city)
+    {
+        return $query->where('city', $city);
+    }
+
+    public static function groupCities()
+    {
+        return static::selectRaw('city name,count(*) amount')
+        ->groupBy('city')
+        ->orderByRaw('min(created_at) desc')
+        ->get();
     }
 
     public function addReview(array $requests)
