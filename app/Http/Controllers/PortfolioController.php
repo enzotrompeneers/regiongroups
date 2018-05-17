@@ -18,10 +18,7 @@ class PortfolioController extends Controller
         // get all the portfolios
         $portfolios = Portfolio::getAll()->get();
 
-        // group portfolios by city
-        $cities = Portfolio::groupCities();
-
-        return view('home.index', compact('portfolios', 'cities'));
+        return view('home.index', compact('portfolios'));
     }
 
     public function create()
@@ -33,7 +30,7 @@ class PortfolioController extends Controller
     {
         // validation
         $this->validate(request(), [
-            //'logo' => 'string|max:255|image',
+            'logo' => 'nullable|max:255|image',
             'name' => 'required|string|max:255',
             'description' => 'required|min:10',
             'street' => 'required|string|max:255',
@@ -43,15 +40,12 @@ class PortfolioController extends Controller
             'country' => 'required|string|max:255',
             'phone' => 'required|string|min:3|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            //'external' => 'string|max:255|active_url',
+            'external' => 'nullable|max:255|active_url'
         ]);
 
         // add review to the portfolio
         $requests = request(['logo', 'name', 'description', 'street', 'housenumber', 'postal_code', 'city', 'country', 'phone', 'email', 'external']);
         auth()->user()->addPortfolio($requests);
-
-        // create and save portfolio
-        //auth()->user()->publish();
 
         return redirect('/');
     }

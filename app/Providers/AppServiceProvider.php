@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('partials.sidebar', function ($view) {
+            // group portfolios by city
+            $view->with('cities', \App\Portfolio::groupCities());
+        });
     }
 
     /**

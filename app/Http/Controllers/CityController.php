@@ -13,9 +13,6 @@ class CityController extends Controller
         ->filterCity($city)
         ->get();
 
-        // group portfolios by city
-        $cities = Portfolio::groupCities();
-
-        return view('home.index', compact('portfolios', 'cities'));
+        return view('home.index', compact('portfolios'));
     }
 }
