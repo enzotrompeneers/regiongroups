@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Mail Driver
@@ -56,8 +55,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@regiongroups.com'),
+        'name' => env('MAIL_FROM_NAME', 'Regiongroups'),
     ],
 
     /*
@@ -113,11 +112,10 @@ return [
     */
 
     'markdown' => [
-        'theme' => 'default',
+        'theme' => 'regiongroups',
 
         'paths' => [
             resource_path('views/vendor/mail'),
         ],
     ],
-
 ];
