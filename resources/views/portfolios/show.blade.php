@@ -39,7 +39,7 @@
 
     <h3>Review plaatsen</h3>
     @auth
-        <form action="/portfolios/{{ $portfolio->id }}/reviews" method="post">
+        <form action="/portfolios/{{ $portfolio->name }}/reviews" method="post">
             {{ csrf_field() }}
 
             <label for="rating">Rating</label>

@@ -40,4 +40,9 @@ class Portfolio extends Model
 
         $this->reviews()->create(compact('rating', 'body', 'user_id'));
     }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }
