@@ -17,6 +17,9 @@ class ReviewController extends Controller
         // add review to the portfolio
         $portfolio->addReview($requests->toArray());
 
+        // message
+        session()->flash('message', 'Review opgeslagen!');
+
         return back();
     }
 }

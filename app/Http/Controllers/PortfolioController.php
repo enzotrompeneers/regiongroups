@@ -29,7 +29,11 @@ class PortfolioController extends Controller
 
     public function store(PortfolioRequest $requests)
     {
+        // add portfolio
         auth()->user()->addPortfolio($requests->toArray());
+
+        // message
+        session()->flash('message', 'Portfolio opgeslagen!');
 
         return redirect('/');
     }
