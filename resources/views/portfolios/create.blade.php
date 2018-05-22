@@ -4,7 +4,7 @@
     <h1>Create portfolio page</h1>
 
     <form action="{{ route('portfolio.store') }}" method="post">
-        {{ csrf_field() }}
+        @csrf
         <label for="logo">Logo</label>
         <input type="text" id="logo" name="logo" placeholder="Logo">
         <br>

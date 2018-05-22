@@ -40,7 +40,7 @@
     <h3>Review plaatsen</h3>
     @auth
         <form action="/portfolios/{{ $portfolio->name }}/reviews" method="post">
-            {{ csrf_field() }}
+            @csrf
 
             <label for="rating">Rating</label>
         <input type="text" id="rating" value="{{ old('rating') }}" name="rating" placeholder="Rating" required>
