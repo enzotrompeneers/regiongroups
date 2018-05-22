@@ -3,6 +3,8 @@
 @section('content')
     <h1>Home page</h1>
 
+    @include('partials.search')
+
     <h2>List portfolios</h2>
     @foreach($portfolios as $portfolio)
         @include('portfolios.portfolio')

@@ -14,12 +14,17 @@ class PortfolioController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        // get all the portfolios
-        $portfolios = Portfolio::getAll()->get();
+        // search
+        $search = $request->input('search');
 
-        return view('home.index', compact('portfolios'));
+        // get all the portfolios
+        $portfolios = Portfolio::getAll()
+        ->search($search)
+        ->get();
+
+        return view('home.index', compact('portfolios', 'search'));
     }
 
     public function create()

@@ -24,6 +24,12 @@ class Portfolio extends Model
         return $query->where('city', $city);
     }
 
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('name', 'like', '%' . $search . '%')
+            ->orWhere('description', 'like', '%' . $search . '%');
+    }
+
     public static function groupCities()
     {
         return static::selectRaw('city name,count(*) amount')
