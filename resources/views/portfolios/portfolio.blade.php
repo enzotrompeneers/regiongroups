@@ -1,4 +1,7 @@
 <a href="/portfolios/{{ $portfolio->name }}">
-    <h3>{{ $portfolio->name }}</h3>
-    <p>{{ $portfolio->description }}</p>
+    <p>
+        <b>Naam: {{ $portfolio->name }}</b> <br>
+        Beschrijving: {{ $portfolio->description }} <br>
+        Regio: {{ $portfolio->city }}
+    </p>
 </a>
