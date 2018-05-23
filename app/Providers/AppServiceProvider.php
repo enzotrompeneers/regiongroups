@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Portfolio;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('partials.sidebar', function ($view) {
             // group portfolios by city
-            $view->with('cities', \App\Portfolio::groupCities());
+            $view->with('cities', Portfolio::groupCities());
         });
     }
 

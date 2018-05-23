@@ -16,15 +16,20 @@ class PortfolioController extends Controller
 
     public function index(Request $request)
     {
-        // search
+        // get location
+        $position = Portfolio::getLocation();
+        $city_name = $position->cityName;
+
+        // search inputs
         $search = $request->input('search');
+        $city = $request->input('city');
 
         // get all the portfolios
         $portfolios = Portfolio::getAll()
-        ->search($search)
+        ->search($search, $city)
         ->get();
 
-        return view('home.index', compact('portfolios', 'search'));
+        return view('home.index', compact('portfolios', 'search', 'city', 'city_name'));
     }
 
     public function create()

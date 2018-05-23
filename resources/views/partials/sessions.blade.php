@@ -1,5 +1,5 @@
-@if($flash = session('message'))
+@if($message = session('message'))
     <div class="session" role="alert">
-        {{ $flash }}
+        {!! $message !!}
     </div>
 @endif

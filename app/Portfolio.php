@@ -2,6 +2,9 @@
 
 namespace App;
 
+use Location;
+use Illuminate\Http\Request;
+
 class Portfolio extends Model
 {
     public function reviews()
@@ -19,15 +22,49 @@ class Portfolio extends Model
         return static::latest();
     }
 
-    public function scopeFilterCity($query, $city)
+    public function scopeSearch($query, $name, $city)
     {
-        return $query->where('city', $city);
-    }
+        $original = clone $query;
 
-    public function scopeSearch($query, $search)
-    {
-        return $query->where('name', 'like', '%' . $search . '%')
-            ->orWhere('description', 'like', '%' . $search . '%');
+        // search with location
+        $query->where(function ($query) use ($name) {
+            $query->where('name', 'like', '%' . $name . '%')
+                  ->orWhere('description', 'like', '%' . $name . '%');
+        })
+        ->where(function ($query) use ($city) {
+            $query->where('city', 'like', '%' . $city . '%');
+        });
+
+        // check if found minimum 1
+        if ($amount = count($query->get())) {
+            if ($amount > 1) {
+                session()->flash('message', 'Er zijn ' . $amount . ' resultaten gevonden!');
+            } else {
+                session()->flash('message', 'Er is ' . $amount . ' resultaat gevonden!');
+            }
+            return $query;
+        }
+
+        // no search results were found
+        // search again and filter without the location to wider the search result
+        $original->where(function ($original) use ($name) {
+            $original->where('name', 'like', '%' . $name . '%')
+                  ->orWhere('description', 'like', '%' . $name . '%');
+        });
+
+        // check if found minimum 1
+        if ($amount = count($original->get())) {
+            if ($amount > 1) {
+                session()->flash('message', 'Er zijn geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente zijn er ' . $amount . ' resultaten gevonden!');
+            } else {
+                session()->flash('message', 'Er zijn geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente is er ' . $amount . ' resultaat gevonden!');
+            }
+            return $original;
+        }
+
+        // no search results were found
+        session()->flash('message', 'Er zijn geen resultaten gevonden!');
+        return $original;
     }
 
     public static function groupCities()
@@ -36,6 +73,19 @@ class Portfolio extends Model
         ->groupBy('city')
         ->orderByRaw('min(created_at) desc')
         ->get();
+    }
+
+    public static function getIp()
+    {
+        $ip = request()->ip();
+        $ip = '81.82.128.212';
+
+        return $ip;
+    }
+
+    public static function getLocation()
+    {
+        return Location::get(static::getIp());
     }
 
     public function addReview(array $requests)
