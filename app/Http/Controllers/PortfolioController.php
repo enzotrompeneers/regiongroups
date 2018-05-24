@@ -41,7 +41,6 @@ class PortfolioController extends Controller
     {
         // add portfolio
         $portfolio->addPortfolio($portfolio, $requests);
-
         session()->flash('crud', 'Portfolio is opgeslagen!');
 
         return redirect()->route('portfolio.show', $portfolio);
@@ -61,8 +60,8 @@ class PortfolioController extends Controller
     public function update(PortfolioRequest $requests, Portfolio $portfolio)
     {
         // update the portfolio
-        session()->flash('crud', 'Portfolio is gewijzigd');
         $portfolio->updatePortfolio($portfolio, $requests);
+        session()->flash('crud', 'Portfolio is gewijzigd');
 
         return redirect()->route('portfolio.show', $portfolio);
     }

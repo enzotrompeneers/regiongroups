@@ -16,6 +16,7 @@ class CityController extends Controller
         $portfolios = Portfolio::getAll()
         ->filterCity($city)
         ->get();
+        session()->flash('info', '');
 
         return view('home.index', compact('portfolios', 'city_name'));
     }
