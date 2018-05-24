@@ -12,6 +12,11 @@ class Portfolio extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -38,9 +43,9 @@ class Portfolio extends Model
         // check if found minimum 1
         if ($amount = count($query->get())) {
             if ($amount > 1) {
-                session()->flash('message', 'Er zijn ' . $amount . ' resultaten gevonden!');
+                session()->flash('info', 'Er zijn ' . $amount . ' resultaten gevonden!');
             } else {
-                session()->flash('message', 'Er is ' . $amount . ' resultaat gevonden!');
+                session()->flash('info', 'Er is ' . $amount . ' resultaat gevonden!');
             }
             return $query;
         }
@@ -55,15 +60,15 @@ class Portfolio extends Model
         // check if found minimum 1
         if ($amount = count($original->get())) {
             if ($amount > 1) {
-                session()->flash('message', 'Er zijn geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente zijn er ' . $amount . ' resultaten gevonden!');
+                session()->flash('info', 'Er zijn geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente zijn er ' . $amount . ' resultaten gevonden!');
             } else {
-                session()->flash('message', 'Er zijn geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente is er ' . $amount . ' resultaat gevonden!');
+                session()->flash('info', 'Er zijn geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente is er ' . $amount . ' resultaat gevonden!');
             }
             return $original;
         }
 
         // no search results were found
-        session()->flash('message', 'Er zijn geen resultaten gevonden!');
+        session()->flash('info', 'Er zijn geen resultaten gevonden!');
         return $original;
     }
 
@@ -95,6 +100,49 @@ class Portfolio extends Model
         $user_id = auth()->id();
 
         $this->reviews()->create(compact('rating', 'body', 'user_id'));
+    }
+
+    public function addPortfolio($portfolio, $requests)
+    {
+        $logo = $requests['logo'];
+        $name = $requests['name'];
+        $description = $requests['description'];
+        $street = $requests['street'];
+        $housenumber = $requests['housenumber'];
+        $postal_code = $requests['postal_code'];
+        $city = $requests['city'];
+        $country = $requests['country'];
+        $phone = $requests['phone'];
+        $email = $requests['email'];
+        $external = $requests['external'];
+        $layout = 1;
+        $user_id = auth()->id();
+
+        $portfolio->create(compact('logo', 'name', 'description', 'street', 'housenumber', 'postal_code', 'city', 'country', 'phone', 'email', 'external', 'layout', 'user_id'));
+    }
+
+    public function updatePortfolio($portfolio, $requests)
+    {
+        $portfolio->logo = $requests['logo'];
+        $portfolio->name = $requests['name'];
+        $portfolio->description = $requests['description'];
+        $portfolio->street = $requests['street'];
+        $portfolio->housenumber = $requests['housenumber'];
+        $portfolio->postal_code = $requests['postal_code'];
+        $portfolio->city = $requests['city'];
+        $portfolio->country = $requests['country'];
+        $portfolio->phone = $requests['phone'];
+        $portfolio->email = $requests['email'];
+        $portfolio->external = $requests['external'];
+        $portfolio->layout = 1;
+        $portfolio->user_id = auth()->id();
+
+        $portfolio->save();
+    }
+
+    public function scopeFilterCity($query, $city)
+    {
+        return $query->where('city', $city);
     }
 
     public function getRouteKeyName()

@@ -31,23 +31,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Portfolio::class);
     }
-
-    public function addPortfolio(array $requests)
-    {
-        $logo = $requests['logo'];
-        $name = $requests['name'];
-        $description = $requests['description'];
-        $street = $requests['street'];
-        $housenumber = $requests['housenumber'];
-        $postal_code = $requests['postal_code'];
-        $city = $requests['city'];
-        $country = $requests['country'];
-        $phone = $requests['phone'];
-        $email = $requests['email'];
-        $external = $requests['external'];
-        $layout = 1;
-        $user_id = auth()->id();
-
-        $this->portfolio()->create(compact('logo', 'name', 'description', 'street', 'housenumber', 'postal_code', 'city', 'country', 'phone', 'email', 'external', 'layout', 'user_id'));
-    }
 }

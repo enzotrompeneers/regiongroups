@@ -37,28 +37,34 @@ class PortfolioController extends Controller
         return view('portfolios.create');
     }
 
-    public function store(PortfolioRequest $requests)
+    public function store(PortfolioRequest $requests, Portfolio $portfolio)
     {
         // add portfolio
-        auth()->user()->addPortfolio($requests->toArray());
+        $portfolio->addPortfolio($portfolio, $requests);
 
-        // message
-        session()->flash('message', 'Portfolio opgeslagen!');
+        session()->flash('crud', 'Portfolio is opgeslagen!');
 
-        return redirect('/');
+        return redirect()->route('portfolio.show', $portfolio);
     }
 
     public function show(Portfolio $portfolio)
     {
+        session()->flash('info', '');
         return view('portfolios.show', compact('portfolio'));
     }
 
-    public function edit($id)
+    public function edit(Portfolio $portfolio)
     {
+        return view('portfolios.edit', compact('portfolio'));
     }
 
-    public function update(Request $request, $id)
+    public function update(PortfolioRequest $requests, Portfolio $portfolio)
     {
+        // update the portfolio
+        session()->flash('crud', 'Portfolio is gewijzigd');
+        $portfolio->updatePortfolio($portfolio, $requests);
+
+        return redirect()->route('portfolio.show', $portfolio);
     }
 
     public function destroy($id)

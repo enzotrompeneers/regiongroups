@@ -1,7 +1,12 @@
 @extends('layouts.web.master')
 
 @section('content')
-    <a href="{{ URL::previous() }}">Ga Terug</a>
+    @auth
+        @if($portfolio->user_id === Auth::user()->id)
+            <a href="{{ route('portfolio.edit', $portfolio->name) }}">Bewerken</a>
+        @endif
+    @endauth
+                
     <h2>{{ $portfolio->name }}</h3>
     <p>
         Logo: <br>
