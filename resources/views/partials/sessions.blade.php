@@ -1,5 +1,10 @@
-@if($message = session('message'))
+@if($info_message = session('info'))
     <div class="session" role="alert">
-        {!! $message !!}
+        {!! $info_message !!}
+    </div>
+@endif
+@if($crud_message = session('crud'))
+    <div class="crud-message role="alert">
+        {!! $crud_message !!}
     </div>
 @endif
