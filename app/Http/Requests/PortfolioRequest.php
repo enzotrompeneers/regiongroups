@@ -25,7 +25,7 @@ class PortfolioRequest extends FormRequest
     {
         return [
             'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'name' => 'required|max:30|unique:portfolios',
+            'name' => 'required|max:30|unique:portfolios,name,' . $this->portfolio->id,
             'description' => 'required|min:10',
             'street' => 'required|string|max:30',
             'housenumber' => 'required|max:10',
