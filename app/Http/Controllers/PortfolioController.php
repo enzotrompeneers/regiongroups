@@ -44,7 +44,7 @@ class PortfolioController extends Controller
         $portfolio->addPortfolio($portfolio, $requests);
         session()->flash('crud', 'Portfolio is opgeslagen!');
 
-        return redirect()->route('portfolio.show', $portfolio);
+        return redirect()->route('portfolio.show', $requests['name']);
     }
 
     public function show(Portfolio $portfolio)
