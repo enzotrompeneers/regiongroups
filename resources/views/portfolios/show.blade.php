@@ -4,8 +4,28 @@
     @auth
         @if($portfolio->user_id === Auth::user()->id)
             <a href="{{ route('portfolio.edit', $portfolio->name) }}">Bewerken</a>
+
+            <a href="{{ route('portfolio.destroy', $portfolio->name) }}" 
+                 onclick="event.preventDefault();
+                    if(confirm('Weet u zeker dat u het portfolio wilt verwijderen?'))
+                    document.getElementById('destroy-form').submit();">
+                Verwijderen
+            </a>
+
+            <form id="destroy-form" action="{{ route('portfolio.destroy', $portfolio->name) }}" method="POST" style="display:none;">
+                @csrf
+                {{ method_field('delete') }}
+            </form>
+
+            <script>
+                function confirmDelete() {
+                    return confirm('Bent u zeker?')
+                }
+            </script>
         @endif
     @endauth
+
+    
                 
     <h2>{{ $portfolio->name }}</h3>
     <p>

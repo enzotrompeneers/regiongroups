@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Portfolio;
-use App\Http\Requests\PortfolioRequest;
+use App\Http\Requests\PortfolioCreateRequest;
+use App\Http\Requests\PortfolioUpdateRequest;
 
 class PortfolioController extends Controller
 {
@@ -37,7 +38,7 @@ class PortfolioController extends Controller
         return view('portfolios.create');
     }
 
-    public function store(PortfolioRequest $requests, Portfolio $portfolio)
+    public function store(PortfolioCreateRequest $requests, Portfolio $portfolio)
     {
         // add portfolio
         $portfolio->addPortfolio($portfolio, $requests);
@@ -57,16 +58,19 @@ class PortfolioController extends Controller
         return view('portfolios.edit', compact('portfolio'));
     }
 
-    public function update(PortfolioRequest $requests, Portfolio $portfolio)
+    public function update(PortfolioUpdateRequest $requests, Portfolio $portfolio)
     {
         // update the portfolio
         $portfolio->updatePortfolio($portfolio, $requests);
-        session()->flash('crud', 'Portfolio is gewijzigd');
+        session()->flash('crud', 'Portfolio is gewijzigd!');
 
         return redirect()->route('portfolio.show', $portfolio);
     }
 
-    public function destroy($id)
+    public function destroy(Portfolio $portfolio)
     {
+        $portfolio->delete();
+        session()->flash('crud', 'Portfolio is verwijderd!');
+        return redirect()->home();
     }
 }

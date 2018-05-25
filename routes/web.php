@@ -9,7 +9,7 @@ Route::get('portfolios/nieuw', 'PortfolioController@create')->name('portfolio.cr
 Route::post('portfolios/nieuw', 'PortfolioController@store')->name('portfolio.store');
 Route::get('portfolios/bewerken/{portfolio}', 'PortfolioController@edit')->name('portfolio.edit');
 Route::patch('portfolios/bewerken/{portfolio}', 'PortfolioController@update')->name('portfolio.update');
-
+Route::delete('portfolios/verwijderen/{portfolio}', 'PortfolioController@destroy')->name('portfolio.destroy');
 Route::get('portfolios/{portfolio}', 'PortfolioController@show')->name('portfolio.show');
 
 Route::get('gemeente/{city}', 'CityController@show')->name('city.show');
