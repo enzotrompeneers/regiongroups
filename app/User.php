@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Portfolio::class);
     }
+
+    public static function getAll()
+    {
+        return static::latest();
+    }
 }

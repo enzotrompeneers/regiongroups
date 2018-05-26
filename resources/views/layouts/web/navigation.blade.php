@@ -5,7 +5,7 @@
         <li><a href="{{ route('search') }}">Zoeken</a></li>
         <li><a href="">Contacteren</a></li>
         @auth
-            <li><a href="">{{ Auth::user()->name }}</a></li>
+            <li><a href="{{ route('profile.show', Auth::user()->name) }}">{{ Auth::user()->name }}</a></li>
             <li><a href="{{ route('portfolio.create') }}">Nieuw portfolio</a></li>
             <li>
                 <a href="{{ route('logout') }}" 

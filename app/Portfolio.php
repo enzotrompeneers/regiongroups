@@ -4,6 +4,7 @@ namespace App;
 
 use Location;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Portfolio extends Model
 {
@@ -70,6 +71,11 @@ class Portfolio extends Model
         // no search results were found
         session()->flash('info', 'Er zijn geen resultaten gevonden!');
         return $original;
+    }
+
+    public function scopeUserPortfolio($query)
+    {
+        return $query->where('user_id', '=', Auth::user()->id);
     }
 
     public static function groupCities()
