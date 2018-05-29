@@ -2,11 +2,11 @@
 
 @section('pre-scripts')
 <script>
-    var Cityofcompanies = {
-        csrfToken: "{{ csrf_token() }}",
-        stripeKey: "{{ config('services.stripe.key') }}"
-
-    };
+    window.onload = function () {
+    const app = new Vue({
+        el: '#checkout'
+    });
+}
 </script>
 @endsection
 
@@ -17,11 +17,14 @@
             Naam: {{ Auth::user()->name }} <br>
             Email: {{ Auth::user()->email }} <br>
         </p>
+        <!-- include('partials.payment3') -->
 
         <h2>Abonneren</h2>
         <div id="checkout">
             <checkout-form></checkout-form>
         </div>
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+
 
         <h2>Portfolio</h2>
         @foreach($portfolios as $portfolio)
@@ -32,11 +35,7 @@
 
 @section('scripts')
 <script>
-        window.onload = function () {
-        const app = new Vue({
-            el: '#checkout'
-        });
-    }
+    
 </script>
 <script src="https://checkout.stripe.com/checkout.js"></script>
 @endsection
