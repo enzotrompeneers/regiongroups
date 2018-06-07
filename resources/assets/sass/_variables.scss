@@ -1,8 +1,57 @@
+// colors
+$blue: #2CA6FC;
+$blue-light: scale-color($blue, $lightness: 50%);
+$blue-dark: scale-color($blue, $lightness: -50%);
 
-// Body
-$body-bg: #f5f8fa;
+$green: #1EFC97;
+$green-light: scale-color($green, $lightness: 50%);
+$green-dark: scale-color($green, $lightness: -50%);
+
+$orange: #FF9D1E;
+$orange-light: scale-color($orange, $lightness: 50%);
+$orange-light: scale-color($orange, $lightness: -50%);
+
+$red: #FF5B1E;
+$red-light: scale-color($red, $lightness: 50%);
+$red-dark: scale-color($red, $lightness: -50%);
+
+$gray-medium: #cacaca;
+$grey: #323232;
+$grey-dark: #282828;
 
 // Typography
 $font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 0.9rem;
+$font-size-base: 1rem;
 $line-height-base: 1.6;
+
+// Body
+$body-bg: $blue-light;
+$body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// header
+$header-bg: $grey-dark;
+$header-h1: $blue;
+
+// Navigation
+$nav-dropdown-arrow: $blue;
+$nav: $blue;
+$nav-active: $blue-dark;
+$dropdown-bg: $grey-dark;
+
+// search
+$control-addon-bg: $blue;
+$control-addon-bg-hover: $blue-dark;
+$control-field-border: $blue;
+$control-field-border-focus: $blue;
+$search-fade-color: $blue-dark;
+
+// States
+$info: $blue;
+$success: $green;
+$warning: $orange;
+$danger: $red;
+
+// Media
+$media-border: black;
+$media-h4: red;
+$media-p: green;
