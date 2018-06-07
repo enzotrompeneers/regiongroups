@@ -6,12 +6,19 @@
         @yield('pre-scripts')
     </head>
     <body>
-        @include('layouts.web.header')
-        @include('layouts.web.navigation')
-        @include('partials.sessions')
-        @yield('content')
-        @include('layouts.web.footer')
-        @include('layouts.web.scripts')
-        @yield('post-scripts')
+        <div class="flex-container">
+            <header>
+                @include('layouts.web.header')
+            </header>
+            <main>
+                @include('partials.sessions')
+                @yield('content')
+            </main>
+            <footer>
+                @include('layouts.web.footer')
+                @include('layouts.web.scripts')
+                @yield('post-scripts')
+            </footer>
+        </div>
     </body>
 </html>

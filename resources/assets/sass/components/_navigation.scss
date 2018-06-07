@@ -1,0 +1,19 @@
+.navigation {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            padding: 1rem;
+
+            a {
+                color: $nav;
+
+                &:hover {
+                    color: $nav-active;
+                }
+            }
+        }
+    }
+}
