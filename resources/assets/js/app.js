@@ -12,3 +12,9 @@ Vue.http.interceptors.push(function(request) {
   });
 
 Vue.component('CheckoutForm', require('./components/CheckoutForm.vue'));
+
+// mobile menu
+$('[data-curtain-menu-button]').click(function(){
+  $('body').toggleClass('curtain-menu-open');
+})
+

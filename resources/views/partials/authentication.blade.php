@@ -1,5 +1,5 @@
 <div class="authentication flex-vertical">
-    <ul class="dropdown menu" data-dropdown-menu>
+    <ul class="dropdown menu hide-for-small-only" data-dropdown-menu>
         @auth
             <li class="is-dropdown-submenu-parent">
                 <a href="#">{{ ucfirst(Auth::user()->name) }}</a>
@@ -32,4 +32,5 @@
             </li>
         @endauth
     </ul>        
+    @include('partials.mobile-menu')
 </div>

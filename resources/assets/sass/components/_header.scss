@@ -3,6 +3,8 @@
 
     .logo {
         display: flex;
+        z-index: 50;
+        position: relative;
 
         img {
             height: 100px;

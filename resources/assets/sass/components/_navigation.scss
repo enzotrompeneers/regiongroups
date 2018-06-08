@@ -1,4 +1,8 @@
 .navigation {
+    @include breakpoint(medium down) {
+        display: none;
+    }
+
     ul {
         margin: 0;
         padding: 0;
@@ -6,6 +10,9 @@
 
         li {
             padding: 1rem;
+            @include breakpoint(medium down) {
+                font-size: 3rem;
+            }
 
             a {
                 color: $nav;
