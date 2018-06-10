@@ -1,29 +1,50 @@
 @extends('layouts.web.master')
 
 @section('content')
-    <h1>Registreren</h1>
+<div id="particles-js"></div>
+<div class="login">
+    <div class="grid-container">
+        <div class="flex-center">
+                <form id="register" class="callout" action="{{ route('register') }}" method="post">
+                @csrf
+                <h2>Registreren</h2>
+                <div class="floated-label-wrapper">
+                        <label for="name">Naam</label>
+                        <input type="text" id="name" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" name="name" placeholder="Naam" value="{{ old('name') }}" required autofocus autocomplete="off">
+                    </div>
 
-    <form action="{{ route('register') }}" method="post">
-        @csrf
+                <div class="floated-label-wrapper">
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" class="{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="E-mailadres" value="{{ old('email') }}" required autocomplete="off">
+                </div>
+                
+                <div class="floated-label-wrapper">
+                    <label for="password">Wachtwoord</label>
+                    <input type="password" id="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Wachtwoord" required>
+                </div>
 
-        <label for="name">Naam</label>
-        <input type="text" id="name" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" name="name" placeholder="Naam" value="{{ old('name') }}" required autofocus>
-        <br>
+                <div class="floated-label-wrapper">
+                    <label for="password_confirmation">Wachtwoord</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Herhaal wachtwoord" required>
+                </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" class="{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="Email" value="{{ old('email') }}" required>
-        <br>
+                <button type="submit" class="button expanded">Account maken</button>
+                
+                <p>
+                    Heeft u al een account?
+                    <a href="{{ route('login') }}">
+                        Hier aanmelden
+                    </a>
+                </p>
+                @include('partials.errors')  
+            </form>
+            
+        </div>
+    </div>
+</div>
+@endsection
 
-        <label for="password">Wachtwoord</label>
-        <input type="password" id="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Wachtwoord" required>
-        <br>
-
-        <label for="password_confirmation">Herhaal wachtwoord</label>
-        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Herhaal wachtwoord" required>
-        <br>
-
-        <button type="submit">Registreren</button>
-    </form>
-    
-    @include('partials.errors')
+@section('post-scripts')
+    <script type="text/javascript" src="{{ URL::asset('js/particles.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/particles-config.js') }}"></script>
 @endsection
