@@ -1,24 +1,46 @@
 @extends('layouts.web.master')
 
 @section('content')
-    <h1>Inloggen</h1>
+<div id="particles-js"></div>
+<div class="login">
+    <div class="grid-container">
+        <div class="flex-center">
+                <form id="login" class="callout" action="{{ route('login') }}" method="post">
+                @csrf
+                <h2>Aanmelden</h2>
+                <div class="floated-label-wrapper">
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" value="{{ old('email') }}" name="email" placeholder="E-mailadres" required autofocus autocomplete="off">
+                </div>
+                
+                <div class="floated-label-wrapper">
+                    <label for="password">Wachtwoord</label>
+                    <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
+                </div>
 
-    <form action="{{ route('login') }}" method="post">
-        @csrf
+                <button type="submit" class="button expanded">Aanmelden</button>
+                
+                <p>
+                    Wachtwoord vergeten?
+                    <a href="{{ route('password.request') }}">
+                        Vraag opnieuw aan
+                    </a>
+                </p>
+                <p>
+                    Niew hier? 
+                    <a href="{{ route('register') }}">
+                        Maak een account
+                    </a>
+                </p>
+                @include('partials.errors')  
+            </form>
+            
+        </div>
+    </div>
+</div>
+@endsection
 
-        <label for="email">Email</label>
-        <input type="email" id="email" value="{{ old('email') }}" name="email" placeholder="Email" required autofocus>
-        <br>
-
-        <label for="password">Wachtwoord</label>
-        <input type="password" id="password" name="password" placeholder="Wachtwoord" required>
-        <br>
-
-        <button type="submit">Inloggen</button>
-        <a href="{{ route('password.request') }}">
-            Wachtwoord vergeten?
-        </a>
-    </form>
-
-    @include('partials.errors')  
+@section('post-scripts')
+    <script type="text/javascript" src="{{ URL::asset('js/particles.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/particles-config.js') }}"></script>
 @endsection

@@ -1,0 +1,89 @@
+.particles-js-canvas-el {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url("/img/markets.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.login {
+    .callout {
+        background: rgba(255, 255, 255, .8);
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        vertical-align: center;
+        border: 2px solid $login-border;
+        border-radius: 3px;
+        margin: 2rem 0;
+        box-shadow: 0px 5px 10px 0px black;
+
+    }
+    h2 {
+        color: $login-h2;
+        padding-bottom: 1rem;
+    }
+
+    p {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        color: $login-p;
+
+        a {
+            padding-left: 0.5rem;
+        }
+        
+    }
+
+    p:not(:last-child) {
+        padding-bottom: 0.5rem;
+    }
+
+    .floated-label-wrapper {
+        position: relative;
+      
+        label {
+          background: $white;
+          color: $login-color;
+          font-size: 0.75rem;
+          font-weight: 600;
+          opacity: 0;
+          padding: 0 0.25rem;
+          position: absolute;
+          top: 2rem;
+          transition: all 0.15s ease-in;
+          z-index: -1;
+      
+          &.show {
+            opacity: 1;
+            top: -0.85rem;
+            z-index: 1;
+            transition: all 0.15s ease-in;
+          }
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=password] {
+            border: none;
+            border-bottom: 1px solid $login-border;
+            padding: 0.5em;
+            box-shadow: none;
+            background: rgba(255, 255, 255, .8);
+
+            &:focus{
+                border-bottom: 2px solid $login-border-active;
+
+            }
+        }
+      }
+      
+      
+      
+      
+}
