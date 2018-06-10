@@ -16,8 +16,8 @@ h1 {
 }
 
 h2 {
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
 }
 
 h3 {
@@ -35,7 +35,7 @@ footer {
     margin-top: auto;
 }
 
-.flex-container, .flex-space-between, .flex-vertical {
+.flex-container, .flex-space-between, .flex-vertical, .flex-horizontal, .flex-center {
     display: flex;
 }
 
@@ -49,7 +49,39 @@ footer {
     justify-content: space-between;
 }
 
+.flex-center {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.flex-horizontal {
+    justify-content: center;
+}
+
 .flex-vertical {
     align-items: center;
 }
+
+.error {
+    color: $danger;
+}
+
+.is-invalid {
+    color: $danger;
+    border-bottom: 2px solid $danger !important;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    &:focus {
+        -webkit-box-shadow: 0 0 0 30px white inset;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: black !important;
+}
+
+
 

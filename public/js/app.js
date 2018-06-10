@@ -4029,7 +4029,7 @@ Drilldown.defaults = {
    * @type {string}
    * @default '<li class="js-drilldown-back"><a tabindex="0">Back</a></li>'
    */
-  backButton: '<li class="js-drilldown-back"><a tabindex="0">Back</a></li>',
+  backButton: '<li class="js-drilldown-back"><a tabindex="0">Terug</a></li>',
   /**
    * Position the back button either at the top or bottom of drilldown submenus. Can be `'left'` or `'bottom'`.
    * @option
@@ -55765,17 +55765,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Notification__ = __webpack_require__("./resources/assets/js/components/Notification.js");
 
 
-__webpack_require__("./resources/assets/js/foundation.js");
-$(document).foundation();
-
 window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 __webpack_require__("./node_modules/vue-resource/dist/vue-resource.esm.js");
+__webpack_require__("./resources/assets/js/foundation.js");
+__webpack_require__("./resources/assets/js/mobile-menu.js");
+__webpack_require__("./resources/assets/js/login.js");
+
+$(document).foundation();
 
 Vue.http.interceptors.push(function (request) {
-    request.method = 'POST';
-    request.headers.set('X-CSRF-TOKEN', Cityofcompanies.csrfToken);
+  request.method = 'POST';
+  request.headers.set('X-CSRF-TOKEN', Cityofcompanies.csrfToken);
 });
 
+// Payment
 Vue.component('CheckoutForm', __webpack_require__("./resources/assets/js/components/CheckoutForm.vue"));
 
 /***/ }),
@@ -55878,6 +55881,37 @@ if (token) {
 } else {
     console.error('CSRF token not found');
 }
+
+/***/ }),
+
+/***/ "./resources/assets/js/login.js":
+/***/ (function(module, exports) {
+
+
+$(function () {
+    var showClass = 'show';
+    $('input').on('checkval', function () {
+        var label = $(this).prev('label');
+        if (this.value !== '') {
+            label.addClass(showClass);
+        } else {
+            label.removeClass(showClass);
+        }
+    }).on('keyup', function () {
+        $(this).trigger('checkval');
+    });
+});
+
+/***/ }),
+
+/***/ "./resources/assets/js/mobile-menu.js":
+/***/ (function(module, exports) {
+
+$(function () {
+    $('[data-curtain-menu-button]').click(function () {
+        $('body').toggleClass('curtain-menu-open');
+    });
+});
 
 /***/ }),
 
