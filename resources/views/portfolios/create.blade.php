@@ -29,7 +29,7 @@
         <input type="text" id="postal_code" name="postal_code" placeholder="Postcode" value="{{ old('postal_code') }}">
         <br>
 
-        <label for="city">Stad/Dorp</label>
+        <label for="city">Gemeente</label>
         <input type="text" id="city" name="city" placeholder="Stad/Dorp" value="{{ old('city') }}">
         <br>
 
@@ -41,8 +41,8 @@
         <input type="text" id="phone" name="phone" placeholder="Telefoon/Mobiel" value="{{ old('phone') }}">
         <br>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
+        <label for="email">E-mailadres</label>
+        <input type="email" id="email" name="email" placeholder="E-mailadres" value="{{ old('email') }}">
         <br>
 
         <label for="external">Website Url</label>

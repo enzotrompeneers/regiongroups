@@ -3,7 +3,7 @@
 @section('content')
     <h1>Portfolio bewerken</h1>
 
-    <form action="{{ route('portfolio.update', $portfolio->name) }}" method="post">
+    <form action="{{ route('portfolio.update', $portfolio->slug) }}" method="post">
         {{ method_field('PATCH') }}
         @csrf
         <label for="logo">Logo</label>
@@ -11,7 +11,7 @@
         <br>
 
         <label for="name">Naam</label>
-    <input type="text" id="name" name="name" placeholder="Naam" value="{{ old('name', $portfolio->name) }}">
+        <input type="text" id="name" name="name" placeholder="Naam" value="{{ old('name', $portfolio->name) }}">
         <br>
 
         <label for="description">Beschrijving</label>
@@ -30,7 +30,7 @@
         <input type="text" id="postal_code" name="postal_code" placeholder="Postcode" value="{{ old('postal_code', $portfolio->postal_code) }}">
         <br>
 
-        <label for="city">Stad/Dorp</label>
+        <label for="city">Gemeente</label>
         <input type="text" id="city" name="city" placeholder="Stad/Dorp" value="{{ old('city', $portfolio->city) }}">
         <br>
 
@@ -42,8 +42,8 @@
         <input type="text" id="phone" name="phone" placeholder="Telefoon/Mobiel" value="{{ old('phone', $portfolio->phone) }}">
         <br>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email', $portfolio->email) }}">
+        <label for="email">E-mailadres</label>
+        <input type="email" id="email" name="email" placeholder="E-mailadres" value="{{ old('email', $portfolio->email) }}">
         <br>
 
         <label for="external">Website Url</label>

@@ -18,6 +18,7 @@ class CreatePortfoliosTable extends Migration
             $table->integer('user_id');
             $table->string('logo', 255)->nullable();
             $table->string('name', 255);
+            $table->string('slug', 255);
             $table->text('description');
             $table->string('street', 255);
             $table->string('housenumber', 255);

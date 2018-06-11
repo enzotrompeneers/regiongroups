@@ -112,6 +112,7 @@ class Portfolio extends Model
     {
         $logo = $requests['logo'];
         $name = $requests['name'];
+        $slug = str_replace(' ', '-', strtolower($requests['name']));
         $description = $requests['description'];
         $street = $requests['street'];
         $housenumber = $requests['housenumber'];
@@ -124,13 +125,16 @@ class Portfolio extends Model
         $layout = 1;
         $user_id = auth()->id();
 
-        $portfolio->create(compact('logo', 'name', 'description', 'street', 'housenumber', 'postal_code', 'city', 'country', 'phone', 'email', 'external', 'layout', 'user_id'));
+        $portfolio->create(compact('logo', 'name', 'slug', 'description', 'street', 'housenumber', 'postal_code', 'city', 'country', 'phone', 'email', 'external', 'layout', 'user_id'));
+
+        return $slug;
     }
 
     public function updatePortfolio($portfolio, $requests)
     {
         $portfolio->logo = $requests['logo'];
         $portfolio->name = $requests['name'];
+        $portfolio->slug = str_replace(' ', '-', strtolower($requests['name']));
         $portfolio->description = $requests['description'];
         $portfolio->street = $requests['street'];
         $portfolio->housenumber = $requests['housenumber'];
@@ -153,6 +157,6 @@ class Portfolio extends Model
 
     public function getRouteKeyName()
     {
-        return 'name';
+        return 'slug';
     }
 }

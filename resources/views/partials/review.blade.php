@@ -1,4 +1,4 @@
-<form class="review" action="/portfolios/{{ $portfolio->name }}/reviews" method="post">
+<form class="review" action="/portfolios/{{ $portfolio->slug }}/reviews" method="post">
     @csrf
     <div class="grid-x">
         <div class="cell">

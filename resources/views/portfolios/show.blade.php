@@ -1,86 +1,74 @@
 @extends('layouts.web.master')
 
 @section('content')
-    @auth
-        @if($portfolio->user_id === Auth::user()->id)
-            <a href="{{ route('portfolio.edit', $portfolio->name) }}">Bewerken</a>
+    <div class="grid-container">
+        @auth
+            @if($portfolio->user_id === Auth::user()->id)
+                <a class="button" href="{{ route('portfolio.edit', $portfolio->slug) }}">Bewerken</a>
 
-            <a href="{{ route('portfolio.destroy', $portfolio->name) }}" 
-                 onclick="event.preventDefault();
-                    if(confirm('Weet u zeker dat u het portfolio wilt verwijderen?'))
-                    document.getElementById('destroy-form').submit();">
-                Verwijderen
-            </a>
+                <a class="button alert" href="{{ route('portfolio.destroy', $portfolio->slug) }}" 
+                    onclick="event.preventDefault();
+                        if(confirm('Weet u zeker dat u het portfolio wilt verwijderen?'))
+                        document.getElementById('destroy-form').submit();">
+                    Verwijderen
+                </a>
 
-            <form id="destroy-form" action="{{ route('portfolio.destroy', $portfolio->name) }}" method="POST" style="display:none;">
-                @csrf
-                {{ method_field('delete') }}
-            </form>
+                <form id="destroy-form" action="{{ route('portfolio.destroy', $portfolio->slug) }}" method="POST" style="display:none;">
+                    @csrf
+                    {{ method_field('delete') }}
+                </form>
 
-            <script>
-                function confirmDelete() {
-                    return confirm('Bent u zeker?')
-                }
-            </script>
-        @endif
-    @endauth
+                <script>
+                    function confirmDelete() {
+                        return confirm('Bent u zeker?')
+                    }
+                </script>
+            @endif
+        @endauth
 
-    
-                
-    <h2>{{ $portfolio->name }}</h3>
-    <p>
-        Logo: <br>
-        {{ $portfolio->logo }}
-    </p>
-    <p>
-        Beschrijving: <br>
-        {{ $portfolio->description }}
-    </p>
-
-    <p>
-        Adres: <br>
-        {{ $portfolio->street }} {{ $portfolio->housenumber }}, <br>
-        {{ $portfolio->postal_code }} {{ $portfolio->city }} {{ $portfolio->country }}
-    </p>
-
-    <p>
-        GSM/Tel: {{ $portfolio->phone }} <br>
-        Email: {{ $portfolio->email }} <br>
-        Website: {{ $portfolio->external }}
-    </p>
-    <p>Gemaakt door: {{$portfolio->user->name}}, op: {{ $portfolio->created_at->toFormattedDateString() }}</p>
-
-    <hr>
-    <h3>Reviews</h3>
-    @foreach($portfolio->reviews as $review)
+        
+                    
+        <h2>{{ $portfolio->name }}</h3>
         <p>
-            Rating:{{ $review->rating }} <br>
-            Review: {{ $review->body }} <br>
-            Gemaakt door: {{$review->user->name}} {{ $review->created_at->diffForHumans() }}
+            Logo: <br>
+            {{ $portfolio->logo }}
         </p>
-    @endforeach
+        <p>
+            Beschrijving: <br>
+            {{ $portfolio->description }}
+        </p>
 
-    <hr>
+        <p>
+            Adres: <br>
+            {{ $portfolio->street }} {{ $portfolio->housenumber }}, <br>
+            {{ $portfolio->postal_code }} {{ $portfolio->city }} {{ $portfolio->country }}
+        </p>
 
-    <h3>Review plaatsen</h3>
-    @auth
-        <form action="/portfolios/{{ $portfolio->name }}/reviews" method="post">
-            @csrf
+        <p>
+            GSM/Tel: {{ $portfolio->phone }} <br>
+            E-mailadres: {{ $portfolio->email }} <br>
+            Website: {{ $portfolio->external }}
+        </p>
+        <p>Gemaakt door: {{$portfolio->user->name}}, op: {{ $portfolio->created_at->toFormattedDateString() }}</p>
 
-            <label for="rating">Rating</label>
-        <input type="text" id="rating" value="{{ old('rating') }}" name="rating" placeholder="Rating" required>
-            <br>
+        <hr>
+        <h3>Reviews</h3>
+        @foreach($portfolio->reviews as $review)
+            <p>
+                Rating:{{ $review->rating }} <br>
+                Review: {{ $review->body }} <br>
+                Gemaakt door: {{$review->user->name}} {{ $review->created_at->diffForHumans() }}
+            </p>
+        @endforeach
 
-            <label for="body">Review</label>
-            <textarea name="body" id="body" required>{{ old('body') }}</textarea>
-            <br>
+        <hr>
 
-            <button type="submit">Review toevoegen</button>
-        </form>
-        @include('partials.errors')
+        <h3>Review plaatsen</h3>
+        @auth
+            @include('partials.review')
+        @else
+            <p>Om een review te plaatsen moet je <a href="{{route('login')}}">inloggen</a>.</p>
 
-    @else
-        <p>Om een review te plaatsen moet je <a href="{{route('login')}}">inloggen</a>.</p>
-
-    @endauth
+        @endauth
+    </div>
 @endsection

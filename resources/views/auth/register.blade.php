@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="floated-label-wrapper">
-                    <label for="password_confirmation">Wachtwoord</label>
+                    <label for="password_confirmation">Herhaal wachtwoord</label>
                     <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Herhaal wachtwoord" required>
                 </div>
 

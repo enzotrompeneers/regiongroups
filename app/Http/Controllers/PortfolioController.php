@@ -35,16 +35,17 @@ class PortfolioController extends Controller
 
     public function create()
     {
+        session()->flash('info', '');
         return view('portfolios.create');
     }
 
     public function store(PortfolioCreateRequest $requests, Portfolio $portfolio)
     {
         // add portfolio
-        $portfolio->addPortfolio($portfolio, $requests);
+        $slug = $portfolio->addPortfolio($portfolio, $requests);
         session()->flash('crud', 'Portfolio is opgeslagen!');
 
-        return redirect()->route('portfolio.show', $requests['name']);
+        return redirect()->route('portfolio.show', $slug);
     }
 
     public function show(Portfolio $portfolio)
