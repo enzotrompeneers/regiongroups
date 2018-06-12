@@ -28,10 +28,11 @@
 
         
                     
-        <h2>{{ $portfolio->name }}</h3>
+        <h2>{{ $portfolio->name }}</h2>
         <p>
             Logo: <br>
-            {{ $portfolio->logo }}
+            <?php $logo_image = $portfolio->logo ? Storage::url($portfolio->logo) : "img/logo-avatar.svg";?>
+            <div class="logo-image" style="background-image:url(<?php echo $logo_image ?>);"></div>
         </p>
         <p>
             Beschrijving: <br>

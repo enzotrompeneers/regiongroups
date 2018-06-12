@@ -3,11 +3,13 @@
 @section('content')
     <h1>Portfolio bewerken</h1>
 
-    <form action="{{ route('portfolio.update', $portfolio->slug) }}" method="post">
+    <form action="{{ route('portfolio.update', $portfolio->slug) }}" method="post" enctype="multipart/form-data">
         {{ method_field('PATCH') }}
         @csrf
         <label for="logo">Logo</label>
-        <input type="text" id="logo" name="logo" placeholder="Logo" value="{{ old('logo', $portfolio->logo) }}">
+        <?php $logo_image = $portfolio->logo ? Storage::url($portfolio->logo) : "img/logo-avatar.svg";?>
+        <div class="logo-image" style="background-image:url(../<?php echo $logo_image ?>);"></div>
+        <input type="file" accept="image/*" id="logo" name="logo" placeholder="Logo" onchange="showUploadedImage(this);">
         <br>
 
         <label for="name">Naam</label>
@@ -57,4 +59,21 @@
     
     
     
+@endsection
+
+@section('post-scripts')
+<script>
+    function showUploadedImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+    
+            reader.onload = function (e) {
+                $('.logo-image')
+                .css('background-image', 'url(' + e.target.result + ')');
+            };
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 @endsection

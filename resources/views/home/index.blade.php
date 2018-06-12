@@ -1,17 +1,17 @@
+
 @extends('layouts.web.master')
 
 @section('content')
-    <h1>Home page</h1>
-
-    @include('partials.search')
-
-    <h2>List portfolios</h2>
-    @foreach($portfolios as $portfolio)
-        @include('portfolios.portfolio')
-    @endforeach
-
-    <h3>Sorteren op gemeente</h3>
-    
-    @include('partials.sidebar')
+    <div class="grid-container">
+        @include('partials.search')
+        <div class="grid-x">
+            @foreach($portfolios as $portfolio)
+                <div class="cell large-4 medium-6">
+                    @include('portfolios.portfolio')
+                </div>
+            @endforeach
+        </div>
+        @include('partials.sidebar')
+    </div>
 
 @endsection

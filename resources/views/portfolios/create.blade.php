@@ -1,12 +1,13 @@
 @extends('layouts.web.master')
-
 @section('content')
     <h1>Create portfolio page</h1>
 
-    <form action="{{ route('portfolio.store') }}" method="post">
+    <form action="{{ route('portfolio.store') }}" method="post" enctype="multipart/form-data" >
         @csrf
         <label for="logo">Logo</label>
-        <input type="text" id="logo" name="logo" placeholder="Logo">
+        <div class="logo-image"></div>
+        <input type="file" accept="image/*" id="logo" name="logo" placeholder="Logo" onchange="showUploadedImage(this);">
+        
         <br>
 
         <label for="name">Naam</label>
@@ -51,9 +52,25 @@
 
         <button type="submit">Publiceren</button>
     </form>
-
+    
     @include('partials.errors')
     
-    
-    
 @endsection
+
+@section('post-scripts')
+<script>
+    function showUploadedImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+    
+            reader.onload = function (e) {
+                $('.logo-image')
+                .css('background-image', 'url(' + e.target.result + ')');
+            };
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+@endsection
+

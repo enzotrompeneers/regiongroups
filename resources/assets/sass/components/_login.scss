@@ -74,16 +74,11 @@
             border-bottom: 1px solid $login-border;
             padding: 0.5em;
             box-shadow: none;
-            background: rgba(255, 255, 255, .8);
 
             &:focus{
                 border-bottom: 2px solid $login-border-active;
 
             }
         }
-      }
-      
-      
-      
-      
+      } 
 }

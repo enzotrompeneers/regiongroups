@@ -15,3 +15,4 @@ Vue.http.interceptors.push(function(request) {
 
 // Payment
 Vue.component('CheckoutForm', require('./components/CheckoutForm.vue'));
+

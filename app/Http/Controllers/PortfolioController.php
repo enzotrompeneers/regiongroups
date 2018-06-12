@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Portfolio;
 use App\Http\Requests\PortfolioCreateRequest;
 use App\Http\Requests\PortfolioUpdateRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -62,6 +63,7 @@ class PortfolioController extends Controller
     public function update(PortfolioUpdateRequest $requests, Portfolio $portfolio)
     {
         // update the portfolio
+        //Storage::delete($portfolio->logo);
         $portfolio->updatePortfolio($portfolio, $requests);
         session()->flash('crud', 'Portfolio is gewijzigd!');
 
@@ -71,6 +73,7 @@ class PortfolioController extends Controller
     public function destroy(Portfolio $portfolio)
     {
         $portfolio->delete();
+        Storage::delete($portfolio->logo);
         session()->flash('crud', 'Portfolio is verwijderd!');
         return redirect()->home();
     }
