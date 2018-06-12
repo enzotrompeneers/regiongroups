@@ -41,6 +41,5 @@
 @endsection
 
 @section('post-scripts')
-    <script type="text/javascript" src="{{ URL::asset('js/particles.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/particles-config.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/all-particles.js') }}"></script>
 @endsection
