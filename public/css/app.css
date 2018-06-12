@@ -11520,7 +11520,7 @@ html {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #96d3fe;
+  background: white;
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
@@ -11615,10 +11615,12 @@ footer {
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px white inset;
+          box-shadow: 0 0 0 30px white inset;
 }
 
 input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 30px white inset;
+          box-shadow: 0 0 0 30px white inset;
 }
 
 input:-webkit-autofill {
@@ -12003,7 +12005,6 @@ input:-webkit-autofill {
   padding: 0.5em;
   -webkit-box-shadow: none;
           box-shadow: none;
-  background: rgba(255, 255, 255, 0.8);
 }
 
 .login .floated-label-wrapper input[type=text]:focus,
@@ -12065,6 +12066,14 @@ input:-webkit-autofill {
 
 .review {
   max-width: 700px;
+}
+
+.logo-image {
+  background-image: url("/img/logo-avatar.svg");
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
 }
 
 footer {

@@ -7,7 +7,11 @@
                     <h1>City of <span>Companies</span></h1>
                 </div>
             </a>
-            @include('partials.navigation')
+            <div class="navigation flex-vertical">
+                <ul class="dropdown menu" data-dropdown-menu>
+                    @include('partials.navigation')
+                </ul>
+            </div>
             @include('partials.authentication')
         </div>
     </div>
