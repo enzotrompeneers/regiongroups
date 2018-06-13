@@ -9,9 +9,9 @@
         <div class="flex-container">
             <header>
                 @include('layouts.web.header')
+                @include('partials.sessions')
             </header>
             <main>
-                @include('partials.sessions')
                 @yield('content')
             </main>
             <footer>

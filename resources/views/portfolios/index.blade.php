@@ -1,21 +1,22 @@
 @extends('layouts.web.master')
 
 @section('content')
-    <div class="grid-container">
-        <p>test</p>
-        <div class="grid-x">
-            <p>test2</p>
-            @foreach($portfolios as $portfolio)
-                <div class="cell large-4">
-                    @include('portfolios.portfolio')
-                </div>
-            @endforeach
-            
+    <section class="search">
+        <div class="grid-container">     
+            @include('partials.search')
         </div>
-    </div>
-    <h1>Portfolio page</h1>
+    </section>
 
-    <h2>List portfolios</h2>
-    
-
+    <section class="portfolios">
+        <div class="grid-container">
+            <div class="grid-x">
+                @foreach($portfolios as $portfolio)
+                    <div class="cell large-4 medium-6">
+                        @include('portfolios.portfolio')
+                    </div>
+                @endforeach
+            </div>
+            @include('partials.sidebar')
+        </div>
+    </section>
 @endsection

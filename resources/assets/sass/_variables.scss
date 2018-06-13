@@ -15,9 +15,9 @@ $red: #FF5B1E;
 $red-light: scale-color($red, $lightness: 50%);
 $red-dark: scale-color($red, $lightness: -50%);
 
-$gray-medium: #cacaca;
-$grey: #323232;
-$grey-dark: #282828;
+$gray-light: #cacaca;
+$gray: #323232;
+$gray-dark: #282828;
 
 // Typography
 $font-family-sans-serif: "Raleway", sans-serif;
@@ -29,28 +29,29 @@ $body-bg: white;
 $body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // header
-$header-bg: $grey-dark;
+$header-bg: $gray-dark;
 $header-h1: $blue;
 
 // Navigation
 $nav-dropdown-arrow: $blue;
 $nav: $blue;
 $nav-active: $blue-dark;
-$dropdown-bg: $grey-dark;
+$dropdown-bg: $gray-dark;
 $mobile-menu: $blue;
 $mobile-menu-active: $blue-dark;
-$curtain-bg: $grey-dark;
-$drilldown-bg: $grey-dark;
+$curtain-bg: $gray-dark;
+$drilldown-bg: $gray-dark;
 
 // Login
 $login-h2: $blue;
-$login-color: $grey-dark;
+$login-color: $gray-dark;
 $login-bg: white;
 $login-border: $blue;
 $login-border-active: $blue;
-$login-p: $grey-dark;
+$login-p: $gray-dark;
 
 // search
+$search-bg: white;
 $control-addon-bg: $blue;
 $control-addon-bg-hover: $blue-dark;
 $control-field-border: $blue;

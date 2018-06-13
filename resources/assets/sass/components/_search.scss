@@ -1,70 +1,88 @@
 .search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
+    background: $search-bg;
+    padding: 2rem 0;
 
-    .control {
-        margin: 10px;
-        height: 40px;
-        width: 400px;
-
-        &.has-addon {
-            display: flex;
-
-            .control-addon {
+    .search-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+    
+        .control {
+            //margin: 10px;
+            height: 40px;
+            //max-width: 400px;
+    
+            @include breakpoint(small only) {
+                margin-bottom: 0.5rem;
+            }
+    
+            &.has-addon {
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                background: $control-addon-bg;
-                min-width: 50px;
-                padding: 0 1rem;
-                color: white;
-
-                &.addon-left {
-                    min-width: 140px;
+    
+                .control-addon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: $control-addon-bg;
+                    min-width: 50px;
+                    padding: 0 1rem;
+                    color: white;
+    
+                    @include breakpoint(small only) {
+                        min-width: 120px;
+                    }
+    
+                    &.addon-left {
+                        min-width: 140px;
+                    }
+    
+                    &.radius-left {
+                        border-radius: 20px 0 0 20px;
+    
+                        @include breakpoint(small only) {
+                            border-radius: 0;
+                        }
+                    }
+    
+                    &.radius-right {
+                        border-radius: 0 20px 20px 0;
+    
+                        @include breakpoint(small only) {
+                            border-radius: 0;
+                        }
+                    }
                 }
-
-                &.radius-top-left {
-                    border-top-left-radius: 20px;
-                    
-                }
-                &.radius-bottom-left {
-                    border-bottom-left-radius: 3px;
-                    
-                }
-                &.radius-top-right {
-                    border-top-right-radius: 3px;
-                }
-                &.radius-bottom-right {
-                    border-bottom-right-radius: 20px;
+    
+                button:hover {
+                    background: $control-addon-bg-hover;
                 }
             }
-
-            button:hover {
-                background: $control-addon-bg-hover;
+    
+            &:not(:last-child) {
+                //margin-bottom: 1rem;
             }
+    
+            .control-field {
+                margin: 0;
+                height: auto;
+                flex: 1;
+                border: 2px solid $control-field-border;
+                border: none;
+    
+                &:focus {
+                    outline: 0;
+                    border: 2px solid $control-field-border-focus;
+                    border-left: none;
+                    border-right: none;
+                    box-shadow: none;
+                    transition: none;
+    
+                    @include breakpoint(small only) {
+                        border-right: 2px solid $control-field-border;
+                    }
+                }
+            }    
         }
-
-        &:not(:last-child) {
-            margin-bottom: 1rem;
-        }
-
-        .control-field {
-            margin: 0;
-            height: auto;
-            flex: 1;
-            border: 2px solid $control-field-border;
-            border: none;
-
-            &:focus {
-                outline: 0;
-                border: 2px solid $control-field-border-focus;
-                border-left: none;
-                border-right: none;
-                box-shadow: none;
-                transition: none;
-            }
-        }    
     }
 }
