@@ -31,7 +31,7 @@ class PortfolioController extends Controller
         ->search($search, $city)
         ->get();
 
-        return view('home.index', compact('portfolios', 'search', 'city', 'city_name'));
+        return view('portfolios.index', compact('portfolios', 'search', 'city', 'city_name'));
     }
 
     public function create()
@@ -63,7 +63,6 @@ class PortfolioController extends Controller
     public function update(PortfolioUpdateRequest $requests, Portfolio $portfolio)
     {
         // update the portfolio
-        //Storage::delete($portfolio->logo);
         $portfolio->updatePortfolio($portfolio, $requests);
         session()->flash('crud', 'Portfolio is gewijzigd!');
 

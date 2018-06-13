@@ -1,0 +1,210 @@
+$panel-margin: rem-calc(20 10);
+$panel-container-background-color: white !default;
+$panel-container-radius: $global-radius !default;
+$panel-header-border-bottom-width: rem-calc(4) !default;
+$panel-header-border-bottom-color: $light-gray !default;
+$panel-header-color: $dark-gray;
+$panel-header-font-size: rem-calc(26) !default;
+$post-item-border-bottom-color: $light-gray !default;
+$post-item-border-bottom-width: rem-calc(1) !default;
+
+.logo-image {
+	background-image: url("/img/logo-avatar.svg");
+	background-size: cover;
+	background-position: center;
+	width: 100px;
+	height: 100px;
+	border-radius: 3px;
+}
+
+.portfolios {
+    background: $portfolios-bg;
+}
+
+@mixin small-posts-list {
+  	.posts-list {
+		.post-title {
+			font-size: rem-calc(18);
+		}
+
+		.post-meta {
+			font-size: rem-calc(12);
+		}
+
+		.post-summary {
+			font-size: rem-calc(12);
+		}
+		.post-read-more {
+			display: none;
+		}
+  	}
+}
+
+.posts-panel {
+	@include grid-col-row();
+	float: none !important;
+	margin: 1rem 0;
+	background-color: $panel-container-background-color;
+	border-radius: $panel-container-radius;
+	box-shadow: rem-calc(0 0 4 0) rgba(0,0,0,.2);
+	padding: 1rem;
+
+	.panel-header {
+		@include grid-col-row();
+		text-align: center;
+		border-bottom: $panel-header-border-bottom-width solid $panel-header-border-bottom-color;
+
+	.panel-title {
+		margin: 0;
+		color: $panel-header-color;
+		font-size: $panel-header-font-size;
+		padding-bottom: 1rem;
+    }
+}
+
+.panel-content {
+    padding: rem-calc(15 0);
+
+    .cell {
+        border: 2px solid $post-item-border-bottom-color;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.pinned-post, .posts-list {
+	@include grid-col-row($gutters: 0);
+}
+
+.posts-list {
+	.post-item:not(:last-child) {
+		border-bottom: $post-item-border-bottom-width solid $post-item-border-bottom-color;
+	}
+}
+
+.post-item {
+    @include grid-row();
+    padding: rem-calc(15 0);
+
+    .post-thumbnail {
+		display: block;
+		@include grid-column($columns: 4);
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+    }
+
+    .post-text {
+    	@include grid-column($columns: 8);
+
+		p{
+			margin: 0;
+		}
+	}
+	
+    .post-title {
+        color: $blue;
+        overflow: hidden;
+        padding-bottom: 0.5rem;
+		font-size: rem-calc(20);
+		line-height: 20px;
+	}
+	
+    .post-meta {
+		color: $dark-gray;
+		font-size: rem-calc(14);
+	}
+	
+    .meta {
+		display: inline-block;
+		margin-#{$global-right}: rem-calc(15);
+	}
+	
+    .meta-icon, .meta-text {
+		display: inline-block;
+		padding-#{$global-right}: rem-calc(5);
+    }
+
+    .post-summary {
+        p {
+            line-height: 1rem;
+            overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+        }
+    }
+
+    .post-read-more {
+		display: block;
+		font-size: rem-calc(14);
+
+		.fa {
+			padding: rem-calc(0 5)
+		}
+    }
+}
+
+	.pinned-post {
+		.post-item {
+			border-bottom: 2px solid $post-item-border-bottom-color;
+		}
+
+		.post-thumbnail {
+			display: block;
+			@include grid-col-row();
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		.post-text {
+			@include grid-col-row();
+			margin-top: rem-calc(15);
+		}
+	}
+
+	@include breakpoint(small only) {
+		@include small-posts-list;
+	}
+
+	@include breakpoint(medium only) {
+		.posts-list {
+			.post-title {
+				font-size: rem-calc(20);
+			}
+
+			.post-meta {
+				font-size: rem-calc(14);
+			}
+
+			.post-summary {
+				font-size: rem-calc(14);
+			}
+		}
+	}
+	  
+	&.grid {
+		.pinned-post, .posts-list {
+			@include grid-column($columns: 6, $gutters: 0);
+
+			@include breakpoint(small only) {
+				@include grid-col-row($gutters: 0);
+			}
+		}
+
+		.pinned-post {
+			.post-item {
+				border: 0;
+			}
+		}
+	
+		@include small-posts-list;
+	}
+}
+

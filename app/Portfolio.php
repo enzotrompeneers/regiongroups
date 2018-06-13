@@ -89,7 +89,6 @@ class Portfolio extends Model
     public static function getIp()
     {
         $ip = request()->ip();
-        $ip = '81.82.128.212';
 
         return $ip;
     }

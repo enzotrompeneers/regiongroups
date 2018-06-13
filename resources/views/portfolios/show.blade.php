@@ -69,7 +69,6 @@
             @include('partials.review')
         @else
             <p>Om een review te plaatsen moet je <a href="{{route('login')}}">inloggen</a>.</p>
-
         @endauth
     </div>
 @endsection

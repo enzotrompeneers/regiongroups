@@ -18,6 +18,6 @@ class CityController extends Controller
         ->get();
         session()->flash('info', '');
 
-        return view('home.index', compact('portfolios', 'city_name'));
+        return view('portfolios.index', compact('portfolios', 'city_name'));
     }
 }

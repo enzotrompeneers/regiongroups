@@ -1,4 +1,6 @@
 // colors
+$white: white;
+
 $blue: #2CA6FC;
 $blue-light: scale-color($blue, $lightness: 50%);
 $blue-dark: scale-color($blue, $lightness: -50%);
@@ -51,12 +53,16 @@ $login-border-active: $blue;
 $login-p: $gray-dark;
 
 // search
-$search-bg: white;
+$search-bg: #fafafa;
 $control-addon-bg: $blue;
 $control-addon-bg-hover: $blue-dark;
 $control-field-border: $blue;
 $control-field-border-focus: $blue;
 $search-fade-color: $blue-dark;
+
+// portfolios
+$portfolios-bg: white;
+
 
 // States
 $info: $blue;
@@ -68,3 +74,4 @@ $danger: $red;
 $media-border: black;
 $media-h4: red;
 $media-p: green;
+$media-bg: white;
