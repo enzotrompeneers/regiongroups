@@ -11,8 +11,9 @@ class ProfileController extends Controller
         $portfolios = Portfolio::getAll()
         ->userPortfolio()
         ->get();
+        session()->flash('success', '');
+        session()->flash('warning', '');
         session()->flash('info', '');
-
         return view('profile.show', compact('portfolios'));
     }
 }

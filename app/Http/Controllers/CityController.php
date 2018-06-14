@@ -16,7 +16,16 @@ class CityController extends Controller
         $portfolios = Portfolio::getAll()
         ->filterCity($city)
         ->get();
-        session()->flash('info', '');
+
+        if ($amount = count($portfolios)) {
+            session()->flash('warning', '');
+            session()->flash('success', '');
+            if ($amount > 1) {
+                session()->flash('info', $amount . ' resultaten gevonden!');
+            } else {
+                session()->flash('info', $amount . ' resultaat gevonden!');
+            }
+        }
 
         return view('portfolios.index', compact('portfolios', 'city_name'));
     }

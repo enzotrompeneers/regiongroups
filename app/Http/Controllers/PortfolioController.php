@@ -36,6 +36,8 @@ class PortfolioController extends Controller
 
     public function create()
     {
+        session()->flash('success', '');
+        session()->flash('warning', '');
         session()->flash('info', '');
         return view('portfolios.create');
     }
@@ -44,13 +46,15 @@ class PortfolioController extends Controller
     {
         // add portfolio
         $slug = $portfolio->addPortfolio($portfolio, $requests);
-        session()->flash('crud', 'Portfolio is opgeslagen!');
+        session()->flash('success', 'Opgeslagen!');
 
         return redirect()->route('portfolio.show', $slug);
     }
 
     public function show(Portfolio $portfolio)
     {
+        session()->flash('success', '');
+        session()->flash('warning', '');
         session()->flash('info', '');
         return view('portfolios.show', compact('portfolio'));
     }
@@ -62,9 +66,8 @@ class PortfolioController extends Controller
 
     public function update(PortfolioUpdateRequest $requests, Portfolio $portfolio)
     {
-        // update the portfolio
         $portfolio->updatePortfolio($portfolio, $requests);
-        session()->flash('crud', 'Portfolio is gewijzigd!');
+        session()->flash('success', 'Gewijzigd!');
 
         return redirect()->route('portfolio.show', $portfolio);
     }
@@ -73,7 +76,8 @@ class PortfolioController extends Controller
     {
         $portfolio->delete();
         Storage::delete($portfolio->logo);
-        session()->flash('crud', 'Portfolio is verwijderd!');
+        session()->flash('success', 'Verwijderd!');
+
         return redirect()->home();
     }
 }

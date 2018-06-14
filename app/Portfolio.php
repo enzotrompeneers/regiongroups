@@ -43,10 +43,12 @@ class Portfolio extends Model
 
         // check if found minimum 1
         if ($amount = count($query->get())) {
+            session()->flash('warning', '');
+            session()->flash('success', '');
             if ($amount > 1) {
-                session()->flash('info', 'Er zijn ' . $amount . ' resultaten gevonden!');
+                session()->flash('info', $amount . ' resultaten gevonden!');
             } else {
-                session()->flash('info', 'Er is ' . $amount . ' resultaat gevonden!');
+                session()->flash('info', $amount . ' resultaat gevonden!');
             }
             return $query;
         }
@@ -61,15 +63,15 @@ class Portfolio extends Model
         // check if found minimum 1
         if ($amount = count($original->get())) {
             if ($amount > 1) {
-                session()->flash('info', 'Er zijn geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente zijn er ' . $amount . ' resultaten gevonden!');
+                session()->flash('warning', 'Geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente zijn er ' . $amount . ' resultaten gevonden!');
             } else {
-                session()->flash('info', 'Er zijn geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente is er ' . $amount . ' resultaat gevonden!');
+                session()->flash('warning', 'Geen resultaten gevonden in deze gemeente! <br> Buiten de gemeente is er ' . $amount . ' resultaat gevonden!');
             }
             return $original;
         }
 
         // no search results were found
-        session()->flash('info', 'Er zijn geen resultaten gevonden!');
+        session()->flash('warning', 'Geen resultaten gevonden!');
         return $original;
     }
 

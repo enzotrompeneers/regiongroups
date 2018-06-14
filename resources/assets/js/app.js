@@ -27,3 +27,10 @@ if ($(".typer")[0]){
 // Payment
 Vue.component('CheckoutForm', require('./components/CheckoutForm.vue'));
 
+// Sessions
+window.setTimeout(function() {
+  $(".callout").fadeTo(1000, 0).slideUp(500, function(){
+      $(this).remove(); 
+  });
+}, 3000);
+

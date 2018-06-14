@@ -5,6 +5,7 @@
             <p>een stielman in uw gemeente...</p>
             <p>een bedrijf in uw gemeente...</p>
             <p>een winkel in uw gemeente...</p>
+            <p>een restaurant in uw gemeente...</p>
         </div>
     </header>
 

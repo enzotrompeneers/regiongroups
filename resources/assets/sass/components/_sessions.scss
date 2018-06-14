@@ -1,0 +1,58 @@
+$alert-callout-border-left-width: rem-calc(5);
+$alert-callout-border-padding: 1.3rem;
+$alert-callout-border-radius: 0.6rem;
+
+.sessions {
+    .alert-callout-border {
+        position: absolute;
+        top: 110px;
+        right: 10px;
+        width: 330px;
+        padding: $alert-callout-border-padding;
+        border-left-width: $alert-callout-border-left-width;
+        border-left-color: $medium-gray;
+
+        strong {
+            color: $body-font-color;
+        }
+
+        .close-button {
+            @include vertical-center;
+        }
+
+        &.radius {
+            border-radius: $alert-callout-border-radius;
+        }
+
+        &.primary {
+            border-left-color: $info;
+            strong {
+            color: $info;
+            }
+        }
+
+        &.alert {
+            border-left-color: $alert;
+
+            strong {
+                color: $alert;
+            }
+        }
+
+        &.success {
+            border-left-color: $success;
+
+            strong {
+                color: $success;
+            }
+        }
+
+        &.warning {
+            border-left-color: $warning;
+
+            strong {
+                color: $warning;
+            }
+        }
+    }
+}
