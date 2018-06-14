@@ -1,0 +1,63 @@
+$tag-cloud-tag-color: #2c3840;
+$tag-cloud-type-color: $light-gray;
+$tag-cloud-separator-color: $medium-gray;
+$tag-cloud-section-bg: lighten($tag-cloud-tag-color, 35%);
+$tag-cloud-section-width: 800px;
+
+.cities {
+    background: $cities-bg;
+
+    p {
+      color: $tag;
+    }
+
+    .cell {
+      background: red;
+    }
+
+    
+}
+
+.tag-cloud-section {
+  margin: 0 auto;
+  padding-bottom: 1rem;
+}
+
+.tag-cloud-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $tag;
+  border-bottom: 1px solid $tag-border;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+.tag-cloud {
+  margin: 1rem;
+  text-align: center;
+  list-style: none;
+
+  .tag-cloud-individual-tag {
+    @include label;
+    border-radius: 5000px;
+    background: $tag-bg;
+    display: inline-block;
+    color: white;
+    margin: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    .fa {
+      margin-left: 7px;
+      color: $tag-cloud-type-color;
+    }
+
+    &:hover {
+      background: $tag-active;
+      transition: background-color .2s ease-in;
+      cursor: pointer;
+    }
+  }
+}
+
