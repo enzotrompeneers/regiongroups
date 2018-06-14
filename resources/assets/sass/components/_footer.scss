@@ -4,6 +4,11 @@
     .input-group {
         flex-direction: column;
         padding: 0 !important;
+
+        input:focus {
+            border: 2px solid $blue !important;
+            box-shadow: none;
+        }
     }
   
     .three-column-footer-contact-form {

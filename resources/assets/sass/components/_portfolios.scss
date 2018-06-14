@@ -46,7 +46,7 @@ $post-item-border-bottom-width: rem-calc(1) !default;
 	margin: 1rem 0;
 	background-color: $panel-container-background-color;
 	border-radius: $panel-container-radius;
-	box-shadow: rem-calc(0 0 4 0) rgba(0,0,0,.2);
+	
 	padding: 1rem;
 
 	.panel-header {

@@ -1,18 +1,4 @@
 <div class="posts-panel">
-    <header class="panel-header">
-        <h1 class="panel-title">Zoek naar <span class="typer"></span></h1>
-        <div id="typed-strings">
-            <p>een stielman in uw gemeente...</p>
-            <p>een bedrijf in uw gemeente...</p>
-            <p>een winkel in uw gemeente...</p>
-            <p>een restaurant in uw gemeente...</p>
-        </div>
-    </header>
-
-    <section class="search">     
-        @include('partials.search')
-    </section>
-
     <div class="panel-content">
         <section class="posts-list">
             <div class="grid-x grid-margin-x grid-margin-y">

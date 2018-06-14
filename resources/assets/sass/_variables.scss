@@ -53,7 +53,7 @@ $login-border-active: $blue;
 $login-p: $gray-dark;
 
 // search
-$search-bg: #fafafa;
+$search-h1: white;
 $control-addon-bg: $blue;
 $control-addon-bg-hover: $blue-dark;
 $control-field-border: $blue;
@@ -62,6 +62,13 @@ $search-fade-color: $blue-dark;
 
 // portfolios
 $portfolios-bg: white;
+
+// cities
+$cities-bg: white;
+$tag-bg: $blue;
+$tag-active: $blue-dark;
+$tag: $gray;
+$tag-border: $gray;
 
 // States
 $info: $blue;
