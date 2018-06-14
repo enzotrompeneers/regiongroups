@@ -56847,7 +56847,7 @@ Vue.component('CheckoutForm', __webpack_require__("./resources/assets/js/compone
 
 // Sessions
 window.setTimeout(function () {
-  $(".callout").fadeTo(1000, 0).slideUp(500, function () {
+  $(".sessions>.callout").fadeTo(1000, 0).slideUp(500, function () {
     $(this).remove();
   });
 }, 3000);

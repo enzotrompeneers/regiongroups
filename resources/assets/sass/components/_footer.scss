@@ -1,3 +1,146 @@
-footer {
-    background: $header-bg;
+.three-column-footer-contact-form-container {
+    background-color: $header-bg;
+
+    .input-group {
+        flex-direction: column;
+        padding: 0 !important;
+    }
+  
+    .three-column-footer-contact-form {
+        @include grid-row();
+        color: $light-gray;
+        padding: rem-calc(60) 0;
+  
+        a {
+            color: $light-gray;
+        }
+  
+        .footer-left {
+            .baseline {
+                display: table-cell;
+            }
+  
+            .contact-details {
+                p {
+                    font-size: 0.8rem;
+                    margin-bottom: 0;
+                    i {
+                        padding-right: 0.5rem;
+                    }
+                }
+            }
+  
+            .input-group {
+                padding: 2rem 0 0 0 ;
+    
+                input{
+                    border-bottom: 2px solid $medium-gray;
+                }
+            }
+  
+            @include breakpoint(small) {
+                @include grid-column(12);
+                width: 100%;
+                display: table;
+                float: none;
+                padding-bottom: 1rem;
+                text-align: center;
+                padding-bottom: 1rem;
+            }
+
+            @include breakpoint(medium) {
+                @include grid-column(4);
+                display: table;
+                text-align: left;
+            }
+
+            @include breakpoint(large) {
+                @include grid-column(4);
+            }
+        }
+
+        .footer-center {
+            text-align: left;
+  
+            @include breakpoint(small) {
+                @include grid-column(12);
+                    display: table;
+
+                .newsletter {
+                    max-width: 300px;
+                    margin: 0 auto;
+                    padding-bottom: 1rem;
+                }
+            }
+  
+            @include breakpoint(medium) {
+                @include grid-column(4);
+            }
+
+            @include breakpoint(large) {
+                @include grid-column(4);
+            }
+  
+            .baseline {
+                display: table-cell;
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+  
+            .input-group {
+                padding: 0.5rem 0 0 0;
+    
+                input {
+                    border-bottom: 2px solid $medium-gray;
+                }
+    
+                textarea {
+                    border-bottom: 2px solid $medium-gray;
+                }
+            }
+        } 
+
+        .footer-right {
+            text-align: right;
+    
+            .baseline {
+                display: table-cell;
+            }
+  
+            h2 {
+                color: $white;
+            }
+    
+            p {
+                font-size: 0.8rem;
+                margin-bottom: 0;
+            }
+  
+            .fa {
+                padding: 1rem 0 1rem 0.2rem;
+            }
+  
+            @include breakpoint(small) {
+                @include grid-column(12);
+                width: 100%;
+                display: table;
+                float: none;
+                padding-bottom: 1rem;
+                text-align: center;
+            }
+  
+            @include breakpoint(medium) {
+                @include grid-column(4);
+                display: table;
+                text-align: right;
+            }
+
+            @include breakpoint(large) {
+                @include grid-column(4);
+            }
+        }
+    }
 }
