@@ -65,12 +65,18 @@ $post-item-border-bottom-width: rem-calc(1) !default;
 .panel-content {
     padding: rem-calc(15 0);
 
-    .cell {
+    .portfolio {
         border: 2px solid $post-item-border-bottom-color;
         max-width: 560px;
         margin-left: auto;
         margin-right: auto;
-    }
+	}
+	
+	.cell {
+		.active {
+			color: $blue;
+		}
+	}
 }
 
 .pinned-post, .posts-list {

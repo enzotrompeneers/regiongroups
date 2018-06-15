@@ -1,15 +1,8 @@
 @extends('layouts.web.master')
 
 @section('content')
-    <section class="search">     
-        <div class="grid-container">
-                <h1>Zoek naar <span class="typer"></span></h1>
-                <div id="typed-strings">
-                    <p>een stielman in uw gemeente...</p>
-                    <p>een bedrijf in uw gemeente...</p>
-                    <p>een winkel in uw gemeente...</p>
-                    <p>een restaurant in uw gemeente...</p>
-                </div>
+    <section class="search">
+        <div class="flex">
             @include('partials.search')
         </div>
     </section>

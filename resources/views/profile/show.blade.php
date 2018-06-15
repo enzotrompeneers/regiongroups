@@ -18,7 +18,6 @@
                 Naam: {{ Auth::user()->name }} <br>
                 Email: {{ Auth::user()->email }} <br>
             </p>
-            <!-- include('partials.payment3') -->
     
             <h2>Abonneren</h2>
             <div id="checkout">
@@ -36,9 +35,6 @@
 @endsection
 
 @section('scripts')
-<script>
-    
-</script>
 <script src="https://checkout.stripe.com/checkout.js"></script>
 @endsection
 

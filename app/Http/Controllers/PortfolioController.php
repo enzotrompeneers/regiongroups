@@ -29,7 +29,7 @@ class PortfolioController extends Controller
         // get all the portfolios
         $portfolios = Portfolio::getAll()
         ->search($search, $city)
-        ->get();
+        ->paginate(10);
 
         return view('portfolios.index', compact('portfolios', 'search', 'city', 'city_name'));
     }

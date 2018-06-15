@@ -3,7 +3,7 @@
         <section class="posts-list">
             <div class="grid-x grid-margin-x grid-margin-y">
                 @foreach($portfolios as $portfolio)
-                    <div class="cell large-6">
+                    <div class="cell large-6 portfolio">
                         <div class="post-item">
                             <a href="{{ route('portfolio.show', $portfolio->slug) }}" class="post-thumbnail">
                                 <?php $logo_image = $portfolio->logo ? Storage::url($portfolio->logo) : "img/logo-avatar.svg";?>
@@ -35,6 +35,9 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="cell text-center">
+                        {{$portfolios->links()}}
+                </div>
             </div>
         </section>
     </div>

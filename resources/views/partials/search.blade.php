@@ -11,7 +11,13 @@
           <li></li>
           <li></li>
     </ul>
-    
+</div>
+<h1>Zoek naar <span class="typer"></span></h1>
+<div id="typed-strings">
+    <p>een stielman in uw gemeente...</p>
+    <p>een bedrijf in uw gemeente...</p>
+    <p>een winkel in uw gemeente...</p>
+    <p>een restaurant in uw gemeente...</p>
 </div>
 <form class="search-form" action="{{ route('home') }}" method="get">
         @csrf

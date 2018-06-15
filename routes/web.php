@@ -6,11 +6,13 @@ Auth::routes();
 
 Route::post('betaling', 'PaymentController@store')->name('payment');
 
+Route::post('nieuwsbrief/aanvraag', 'NewsletterController@store')->name('newsletter');
+
 Route::get('gemeente/{city}', 'CityController@show')->name('city.show');
 
 Route::get('gebruiker/{id}', 'ProfileController@show')->name('profile.show');
 
-Route::get('zoeken', 'PortfolioController@index')->name('search');
+//Route::get('zoeken', 'PortfolioController@index')->name('search');
 
 Route::post('portfolios/{portfolio}/reviews', 'ReviewController@store')->name('review.store');
 

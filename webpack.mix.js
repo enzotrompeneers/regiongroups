@@ -9,7 +9,7 @@ mix.js('resources/assets/js/app.js', 'js')
    .sass('resources/assets/sass/app.scss', 'css')
 
    .browserSync({
-        proxy: 'regiongroups.test/',
+        proxy: 'cityofcompany.test/',
         port: 8000
     })
 

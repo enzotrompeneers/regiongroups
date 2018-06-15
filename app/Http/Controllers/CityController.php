@@ -15,7 +15,7 @@ class CityController extends Controller
         // get all portfolios filtered by city
         $portfolios = Portfolio::getAll()
         ->filterCity($city)
-        ->get();
+        ->paginate(10);
 
         if ($amount = count($portfolios)) {
             session()->flash('warning', '');
