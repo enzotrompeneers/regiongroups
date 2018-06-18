@@ -41,13 +41,17 @@
     
             &.has-addon {
                 display: flex;
+
+                .btn-search {
+                    min-width: 60px;
+                }
     
                 .control-addon {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     background: $control-addon-bg;
-                    min-width: 50px;
+                    //min-width: 60px;
                     padding: 0 1rem;
                     color: white;
     
