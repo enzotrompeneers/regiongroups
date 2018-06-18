@@ -5,12 +5,9 @@ mix.js('resources/assets/js/app.js', 'js')
         'resources/assets/js/particles.js',
         'resources/assets/js/particles-config.js'
     ], 'public/js/all-particles.js')
-
    .sass('resources/assets/sass/app.scss', 'css')
-
    .browserSync({
-        proxy: 'cityofcompany.test/',
+        proxy: 'cityofcompanies.test/',
         port: 8000
     })
-
     .version();

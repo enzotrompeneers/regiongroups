@@ -10,7 +10,7 @@ class ProfileController extends Controller
     {
         $portfolios = Portfolio::getAll()
         ->userPortfolio()
-        ->get();
+        ->paginate(10);
         session()->flash('success', '');
         session()->flash('warning', '');
         session()->flash('info', '');

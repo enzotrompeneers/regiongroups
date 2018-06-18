@@ -16,7 +16,7 @@ class ExampleTest extends TestCase
     {
         $first = factory(Portfolio::class)->create();
         $second = factory(Portfolio::class)->create([
-            'created_at' => \Carbon\Carbon::now()->subMonth()
+            'created_at' => \Carbon\Carbon::now()->subMonth()->setLocale('nl')
         ]);
 
         $portfolio = Portfolio::groupCities();

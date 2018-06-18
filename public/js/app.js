@@ -56852,6 +56852,21 @@ window.setTimeout(function () {
   });
 }, 3000);
 
+// Rating
+$(document).ready(function () {
+  // Check Radio-box
+  $(".rating input:radio").attr("checked", false);
+
+  $('.rating input').click(function () {
+    $(".rating span").removeClass('checked');
+    $(this).parent().addClass('checked');
+  });
+
+  $('input:radio').change(function () {
+    var userRating = this.value;
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/assets/js/components/CheckoutForm.vue":

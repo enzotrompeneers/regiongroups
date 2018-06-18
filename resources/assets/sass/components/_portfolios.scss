@@ -8,13 +8,20 @@ $panel-header-font-size: rem-calc(26) !default;
 $post-item-border-bottom-color: $light-gray !default;
 $post-item-border-bottom-width: rem-calc(1) !default;
 
-.logo-image {
+.logo-image, .logo-image-big {
 	background-image: url("/img/logo-avatar.svg");
 	background-size: cover;
 	background-position: center;
 	width: 100px;
 	height: 100px;
 	border-radius: 3px;
+}
+
+.logo-image-big {
+	background-image: url("/img/logo-avatar.svg");
+	width: 150px;
+	height: 150px;
+	display: flex;
 }
 
 .portfolios {
@@ -141,6 +148,7 @@ $post-item-border-bottom-width: rem-calc(1) !default;
 			display: -webkit-box;
 			-webkit-line-clamp: 3;
 			-webkit-box-orient: vertical;
+			max-height: 48px;
         }
     }
 
@@ -212,5 +220,110 @@ $post-item-border-bottom-width: rem-calc(1) !default;
 	
 		@include small-posts-list;
 	}
+}
+
+
+.portfolio-header {
+	margin: 2rem 0;
+	
+	h2 {
+		color: $blue;
+		padding-left: 1rem;
+	}
+}
+
+.portfolio-header, .portfolio-content {
+	padding: 0 2rem;
+
+	.portfolio-description {
+		p {
+			text-align: justify;
+		}
+	}
+}
+
+.portfolio-link {
+	.portfolio-box {
+		background: $blue;
+		color: white;
+		width: 100%;
+		height: 150px;
+		margin-bottom: 1rem;
+		display: flex;
+		padding: 1rem;
+		position: relative;
+
+		&:hover {
+			background: $blue-dark;
+		}
+	
+		.flex-center {
+			width: 100%;
+	
+			.fa {
+				padding: 0.5rem;
+				font-size: 50px;
+			}
+		}
+	}
+}
+
+.reviews {
+	border-top: 2px solid $blue;
+	padding: 1rem 0;
+	max-width: 500px;
+	margin: 0 auto;
+
+	.review-form {
+		padding-bottom: 1rem;
+
+		textarea {
+			box-shadow: none;
+			border: 1px solid $blue;
+
+		}
+	}
+
+	h3 {
+		color: $gray;
+	}
+
+	p {
+		padding-bottom: 1rem;
+		margin: 1rem 0;
+		border-bottom: 1px solid $gray;
+	}
+}
+
+.rating {
+    float:left;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+	margin-left: 0;
+    display:inline-block;
+    width:20px;
+    height:20px;
+    text-align:center;
+    color:black;
+    font-size:30px;
+    margin-right:15px;
+    line-height:30px;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    color:gold;
+}
+
+.checked.fa-star:before {
+	color: gold;
 }
 

@@ -56,6 +56,7 @@ class PortfolioController extends Controller
         session()->flash('success', '');
         session()->flash('warning', '');
         session()->flash('info', '');
+
         return view('portfolios.show', compact('portfolio'));
     }
 

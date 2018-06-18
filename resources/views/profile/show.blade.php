@@ -27,9 +27,7 @@
     
     
             <h2>Portfolio</h2>
-            @foreach($portfolios as $portfolio)
-                @include('portfolios.portfolio')
-            @endforeach
+            @include('portfolios.portfolio')
         @endauth
     </div>
 @endsection

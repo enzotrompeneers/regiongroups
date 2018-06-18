@@ -17,8 +17,8 @@
                     <form action="{{ route('newsletter') }}" method="post">
                         @csrf
                         <div class="input-group">
-                            <h6>Meld je aan voor onze nieuwsbrief</h6>
-                            <input class="input-group-field" type="email" placeholder="E-mailadres" name="email">
+                            <h6>Nieuwsbrief aanvragen</h6>
+                            <input class="input-group-field" type="email" placeholder="E-mailadres" name="email" required>
                         </div>
                         <button type="submit" class="button expanded">Aanvragen</button>
                     </form>

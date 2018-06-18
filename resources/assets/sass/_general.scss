@@ -21,8 +21,8 @@ h2 {
 }
 
 h3 {
-    font-size: 0.875rem;
-    line-height: 0.875rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
 }
 
 p {
@@ -34,7 +34,7 @@ footer {
     margin-top: auto;
 }
 
-.flex-container, .flex-space-between, .flex-vertical, .flex-horizontal, .flex-center {
+.flex-container, .flex-space-between, .flex-vertical, .flex-horizontal, .flex-center, .flex-it {
     display: flex;
 }
 
@@ -66,6 +66,10 @@ footer {
     @include breakpoint(small down) {
         padding: 0;
     }
+}
+
+.padding-container {
+    padding: 0 2rem;
 }
 
 .error {

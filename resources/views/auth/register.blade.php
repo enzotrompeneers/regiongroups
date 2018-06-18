@@ -5,7 +5,7 @@
 <div class="login">
     <div class="grid-container">
         <div class="flex-center">
-                <form id="register" class="callout" action="{{ route('register') }}" method="post">
+                <form class="callout small-padding-top" action="{{ route('register') }}" method="post">
                 @csrf
                 <h2>Registreren</h2>
                 <div class="floated-label-wrapper">
