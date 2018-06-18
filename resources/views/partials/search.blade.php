@@ -42,7 +42,7 @@
                     
             <div class="cell medium-1 small-12">
                 <div class="control has-addon">
-                    <button type="submit" class="button expanded control-addon radius-right ">
+                    <button type="submit" class="button expanded control-addon radius-right btn-search">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>

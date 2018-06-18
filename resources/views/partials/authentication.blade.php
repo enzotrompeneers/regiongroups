@@ -1,6 +1,12 @@
 <div class="authentication flex-vertical">
     <ul class="dropdown menu hide-for-small-only" data-dropdown-menu>
         @auth
+             <li>
+                <a class="button hollow" href="{{ route('portfolio.create') }}">
+                    <i class="fa fa-plus"></i>
+                    Nieuw portfolio
+                </a>
+            </li>
             <li class="is-dropdown-submenu-parent">
                 <a href="#">{{ ucfirst(Auth::user()->name) }}</a>
                 <ul class="menu">
