@@ -27,7 +27,7 @@
 
                                 <div class="post-summary">
                                     <p>
-                                        {{ ucfirst($portfolio->description) }} 
+                                        {{ strip_tags(html_entity_decode(ucfirst($portfolio->description))) }} 
                                     </p>
                                     <a href="{{ route('portfolio.show', $portfolio->slug) }}" class="post-read-more">Bekijken<span class="fa fa-chevron-circle-right" aria-hidden="true"></span></a>
                                 </div>
