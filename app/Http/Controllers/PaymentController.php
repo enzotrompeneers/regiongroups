@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Stripe\Stripe;
 use Stripe\Charge;
 use Stripe\Customer;
 
@@ -10,6 +11,8 @@ class PaymentController extends Controller
 {
     public function store()
     {
+        //Stripe::setApiKey(config('services.stripe.secret'));
+
         $customer = Customer::create([
             'email' => request('stripeEmail'),
             'source' => request('stripeToken')
@@ -17,11 +20,10 @@ class PaymentController extends Controller
 
         Charge::create([
             'customer' => $customer->id,
-            'amount' => 5000,
+            'amount' => 4999,
             'currency' => 'eur'
         ]);
 
-        dd('done');
         return 'all done';
     }
 }
