@@ -12,46 +12,53 @@
 
 @section('content')
         @auth
-            <div class="card-profile-stats">
-                <div class="card-profile-stats-intro">
-                    <img class="card-profile-stats-intro-pic" src="{{ asset("img/profile-avatar.png") }}" alt="{{ Auth::user()->name }}" />
-                    <div class="card-profile-stats-intro-content">
-                        <h3>{{ Auth::user()->name }}</h3>
-                        <p>
-                            Geregistreerd: {{  Auth::user()->created_at->diffForHumans() }} <br>
-                            Email: {{ Auth::user()->email }}
+            <div class="grid-container">
+                <div class="card-profile-stats">
+                    <div class="card-profile-stats-intro">
+                        <img class="card-profile-stats-intro-pic" src="{{ asset("img/profile-avatar.png") }}" alt="{{ Auth::user()->name }}" />
+                        <div class="card-profile-stats-intro-content">
+                            <h3>{{ Auth::user()->name }}</h3>
+                            <p>
+                                Geregistreerd: {{ Auth::user()->created_at->diffForHumans() }} <br>
+                                Email: {{ Auth::user()->email }}
+                                
+                            </p>
+                            <div id="checkout" class="padding-top">
+                                <checkout-form></checkout-form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-profile-stats-container">
+                       
+
+                        <div class="card-profile-stats-statistic">
+                            <span class="stat">{{count($portfolios)}}</span>
+                            <p>portfolios</p>
+                        </div>
+
+                        <div class="card-profile-stats-statistic">
+                            <span class="stat">{{$amount_reviews}}</span>
+                            <p>reviews</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-profile-stats-more">
+                        <p class="card-profile-stats-more-link"><a href="#"><i class="fa fa-angle-down" aria-hidden="true"></i></a></p>
+                        <div class="card-profile-stats-more-content">
+                            <div class="grid-container">
+                                    @if(count($portfolios))
+                                        @include('portfolios.portfolio')
+                                    @else
+                                        <p class="padding-bottom">Je hebt nog geen portfolio aangemaakt.</p>
+                                        <a class="button hollow" href="{{ route('portfolio.create') }}">
+                                                <i class="fa fa-plus"></i>
+                                                Nieuw portfolio
+                                            </a>
+                                    @endif
+                            </div>
                             
-                        </p>
-                        <div id="checkout" class="padding-top">
-                            <checkout-form></checkout-form>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="card-profile-stats-container">
-                    <div class="card-profile-stats-statistic">
-                        <span class="stat">{{count($portfolios)}}</span>
-                        <p>portfolios</p>
-                    </div>
-
-                    <div class="card-profile-stats-statistic">
-                        <span class="stat">{{count($portfolios)}}</span>
-                        <p>portfolios</p>
-                    </div>
-
-                    <div class="card-profile-stats-statistic">
-                        <span class="stat">{{$amount_reviews}}</span>
-                        <p>reviews</p>
-                    </div>
-                </div>
-                
-                <div class="card-profile-stats-more">
-                    <p class="card-profile-stats-more-link"><a href="#"><i class="fa fa-angle-down" aria-hidden="true"></i></a></p>
-                    <div class="card-profile-stats-more-content">
-                        <div class="grid-container">
-                                @include('portfolios.portfolio')
-                        </div>
-                        
                     </div>
                 </div>
             </div>
