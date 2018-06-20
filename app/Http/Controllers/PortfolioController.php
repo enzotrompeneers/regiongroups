@@ -14,6 +14,7 @@ class PortfolioController extends Controller
     {
         // need to be logged in except for index and show
         $this->middleware('auth')->except(['index', 'show']);
+        \Carbon\Carbon::setLocale('nl');
     }
 
     public function index(Request $request)

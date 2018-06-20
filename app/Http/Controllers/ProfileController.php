@@ -7,6 +7,11 @@ use App\Review;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        \Carbon\Carbon::setLocale('nl');
+    }
+
     public function show()
     {
         $amount_reviews = Review::countReviews();
