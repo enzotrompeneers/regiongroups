@@ -56854,7 +56854,6 @@ window.setTimeout(function () {
 
 // Rating
 $(document).ready(function () {
-  // Check Radio-box
   $(".rating input:radio").attr("checked", false);
 
   $('.rating input').click(function () {
