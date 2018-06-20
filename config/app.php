@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Regiongroups'),
+    'name' => env('APP_NAME', 'Cityofcompanies'),
 
     /*
     |--------------------------------------------------------------------------

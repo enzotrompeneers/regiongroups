@@ -54,7 +54,6 @@ class PortfolioController extends Controller
 
     public function show(Portfolio $portfolio)
     {
-        session()->flash('success', '');
         session()->flash('warning', '');
         session()->flash('info', '');
 

@@ -12,7 +12,11 @@ Route::get('gemeente/{city}', 'CityController@show')->name('city.show');
 
 Route::get('gebruiker/{id}', 'ProfileController@show')->name('profile.show');
 
-//Route::get('zoeken', 'PortfolioController@index')->name('search');
+Route::get('over-ons', 'AboutController@index')->name('about');
+
+Route::get('contacteren', 'ContactController@index')->name('contact');
+
+Route::get('contact/portfolio/{email}', 'ContactController@portfolio')->name('contact.portfolio');
 
 Route::post('portfolios/{portfolio}/reviews', 'ReviewController@store')->name('review.store');
 
