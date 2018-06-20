@@ -4,7 +4,7 @@
     @auth
         @if($portfolio->user_id === Auth::user()->id)
             <div class="portfolio-actions">
-                <div class="grid-container">
+                <div class="grid-container padding-top">
                     <a class="button" href="{{ route('portfolio.edit', $portfolio->slug) }}">Wijzigen</a>
                     <a class="button alert" href="{{ route('portfolio.destroy', $portfolio->slug) }}" 
                         onclick="event.preventDefault();
@@ -33,7 +33,7 @@
             <div class="flex-horizontal">
                 <?php $logo_image = $portfolio->logo ? Storage::url($portfolio->logo) : "img/logo-avatar.svg";?>
                 <div class="logo-image-big" style="background-image:url(<?php echo $logo_image ?>);"></div>
-                <h2 class="flex-center">{{ $portfolio->name }}</h2>
+                <h2 class="flex-center">{{ ucfirst($portfolio->name) }}</h2>
             </div>    
         </div>
     </div>
@@ -42,7 +42,7 @@
             <div class="grid-x grid-margin-x grid-margin-y">
                 <div class="cell large-6">
                     <div class="portfolio-description">
-                        <p>{{ $portfolio->description }}</p>
+                        <p>{!! $portfolio->description !!}</p>
                     </div>
                 </div>
                 <div class="cell large-6 contact-form">
@@ -77,8 +77,8 @@
                             <div class="flex-center">
                                 <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
                                 <p>
-                                    {{ $portfolio->street }} {{ $portfolio->housenumber }}, <br>
-                                    {{ $portfolio->postal_code }} {{ $portfolio->city }} {{ $portfolio->country }}
+                                    {{ ucfirst($portfolio->street) }} {{ ucfirst($portfolio->housenumber) }}, <br>
+                                    {{ $portfolio->postal_code }} {{ ucfirst($portfolio->city) }} {{ ucfirst($portfolio->country) }}
                                 </p>
                             </div>
                         </div>
@@ -104,25 +104,29 @@
                             <div class="flex-center">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <p>
-                                    {{ $portfolio->email }}
+                                    {{ ucfirst($portfolio->email) }}
                                 </p>
                             </div>
                         </div>
                     </a>
                 </div>
 
-                <div class="cell medium-6 large-3">
-                    <a class="portfolio-link" href="{{ $portfolio->external }}" target="_blank">
-                        <div class="portfolio-box">
-                            <div class="flex-center">
-                                <i class="fa fa-link" aria-hidden="true"></i>
-                                <p>
-                                    {{ $portfolio->external }}
-                                </p>
+                @if(count($portfolio->external))
+                    <div class="cell medium-6 large-3">
+                        <a class="portfolio-link" href="{{ $portfolio->external }}" target="_blank">
+                            <div class="portfolio-box">
+                                <div class="flex-center">
+                                    <i class="fa fa-link" aria-hidden="true"></i>
+                                    <p>
+                                        {{ $portfolio->external }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endif
+
+                
 
                 <div class="cell reviews">
                     <h3>Review schrijven</h3>
@@ -144,13 +148,13 @@
                                     <span class="fa fa-star"></span>
                                 @endfor
                                 <br>
-                                {{ $review->body }} <br>
+                                {{ ucfirst($review->body) }} <br>
                             <br>
                                 Van: {{$review->user->name}} {{ $review->created_at->diffForHumans() }}
                             </p>
                         @endforeach
                     @else
-                        <p>Schrijf de eerste review voor {{ $portfolio->name }}.</p>
+                        <p>Schrijf de eerste review voor {{ ucfirst($portfolio->name) }}.</p>
                     @endif
                 </div>
             </div>

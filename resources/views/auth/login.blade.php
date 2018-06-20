@@ -10,7 +10,7 @@
                 <h2>Aanmelden</h2>
                 <div class="floated-label-wrapper">
                     <label for="email">E-mailadres</label>
-                    <input type="email" id="email" value="{{ old('email') }}" name="email" placeholder="E-mailadres" required autofocus autocomplete="off">
+                    <input type="email" id="email" value="{{ old('email') }}" name="email" placeholder="E-mailadres" required autofocus>
                 </div>
                 
                 <div class="floated-label-wrapper">
