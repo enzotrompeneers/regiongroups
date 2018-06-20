@@ -2,8 +2,8 @@
 
 @section('content')
     @auth
-        @if($portfolio->user_id === Auth::user()->id)
-            <div class="portfolio-actions">
+        @if($portfolio->user_id == Auth::user()->id)
+            <div class="portfolio-actions portfolio-content">
                 <div class="grid-container padding-top">
                     <a class="button" href="{{ route('portfolio.edit', $portfolio->slug) }}">Wijzigen</a>
                     <a class="button alert" href="{{ route('portfolio.destroy', $portfolio->slug) }}" 
@@ -28,13 +28,18 @@
         @endif
     @endauth
 
-    <div class="portfolio-header">
+    <div class="portfolio-header portfolio-content">
         <div class="grid-container">
-            <div class="flex-horizontal">
-                <?php $logo_image = $portfolio->logo ? Storage::url($portfolio->logo) : "img/logo-avatar.svg";?>
-                <div class="logo-image-big" style="background-image:url(<?php echo $logo_image ?>);"></div>
-                <h2 class="flex-center">{{ ucfirst($portfolio->name) }}</h2>
-            </div>    
+            <div class="grid-x">
+                <div class="cell medium-6 logo-position">
+                    <?php $logo_image = $portfolio->logo ? Storage::url($portfolio->logo) : "img/logo-avatar.svg";?>
+                    <div class="logo-image-big text-right" style="background-image:url(<?php echo $logo_image ?>);"></div>
+                </div>
+                <div class="cell medium-6 title-position">
+                    <h2 class="flex-center">{{ ucfirst($portfolio->name) }}</h2>
+                </div> 
+            </div>
+                
         </div>
     </div>
     <div class="portfolio-content">
@@ -42,11 +47,11 @@
             <div class="grid-x grid-margin-x grid-margin-y">
                 <div class="cell">
                     <div class="portfolio-description">
-                        <p>{!! $portfolio->description !!}</p>
+                        {!! $portfolio->description !!}
                     </div>
                 </div>
                 <div class="cell large-6 contact-form">
-                    <form class="callout" action="#" method="post">
+                    <form class="callout" action="{{ route('contact.portfolio', $portfolio->email)}}" method="get">
                         @csrf
                         <h2>Contacteren</h2>
                         <div class="floated-label-wrapper">
@@ -112,7 +117,7 @@
                             </a>
                         </div>
         
-                        @if(count($portfolio->external))
+                        @if($portfolio->external)
                             <div class="cell medium-6 large-6">
                                 <a class="portfolio-link" href="{{ $portfolio->external }}" target="_blank">
                                     <div class="portfolio-box">

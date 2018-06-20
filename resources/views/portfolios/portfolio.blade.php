@@ -9,6 +9,7 @@
                                 <?php $logo_image = $portfolio->logo ? Storage::url($portfolio->logo) : "img/logo-avatar.svg";?>
                                 <div class="logo-image" style="background-image:url(../<?php echo $logo_image ?>);"></div>
                             </a>
+                            
                             <div class="post-text">
                                 <a href="{{ route('portfolio.show', $portfolio->slug) }}">
                                     <h3 class="post-title">{{ ucfirst($portfolio->name) }}</h3>
