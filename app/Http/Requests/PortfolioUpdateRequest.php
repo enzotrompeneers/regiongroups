@@ -24,6 +24,7 @@ class PortfolioUpdateRequest extends FormRequest
     public function rules()
     {
         $id = $this->portfolio->id;
+        $url = '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/';
         return [
             'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|max:30|unique:portfolios,name,' . $id,
@@ -35,7 +36,7 @@ class PortfolioUpdateRequest extends FormRequest
             'country' => 'required|max:30',
             'phone' => 'required|min:3|max:20',
             'email' => 'required|email|max:50',
-            'external' => 'nullable|active_url|max:50'
+            'external' => 'nullable|regex:' . $url . '|max:50'
         ];
     }
 }
