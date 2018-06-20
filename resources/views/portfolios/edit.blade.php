@@ -110,7 +110,7 @@
                                 <div class="flex-center">
                                     <i class="fa fa-link" aria-hidden="true"></i>
                                     <div class="floated-label-wrapper">
-                                        <label for="external">E-Website Url</label>
+                                        <label for="external">Website Url</label>
                                         <input type="text" id="external" name="external" placeholder="Website Url" value="{{ old('external', $portfolio->external) }}">
                                     </div>
                                 </div>

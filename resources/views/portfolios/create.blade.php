@@ -21,7 +21,7 @@
                     @include('partials.errors')
                 <div class="flex-horizontal">
                         <div class="logo-image-big no-image">
-                                <span class="flex-center full-width ">
+                                <span class="flex-center full-width overlay-upload">
                                     1:1
                                     <i class="fa fa-upload" aria-hidden="true"></i>
                                 </span>
@@ -111,7 +111,7 @@
                                 <div class="flex-center">
                                     <i class="fa fa-link" aria-hidden="true"></i>
                                     <div class="floated-label-wrapper">
-                                        <label for="external">E-Website Url</label>
+                                        <label for="external">Website Url</label>
                                         <input type="text" id="external" name="external" placeholder="Website Url" value="{{ old('external') }}">
                                     </div>
                                 </div>
@@ -142,6 +142,8 @@
             reader.onload = function (e) {
                 $('.logo-image-big')
                 .css('background-image', 'url(' + e.target.result + ')');
+                $('.overlay-upload')
+                .css('opacity', '0');
             };
     
             reader.readAsDataURL(input.files[0]);
