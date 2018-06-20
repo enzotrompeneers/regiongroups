@@ -11564,7 +11564,8 @@ footer {
 .flex-vertical,
 .flex-horizontal,
 .flex-center,
-.flex-it {
+.flex-it,
+.flex-end {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11956,11 +11957,8 @@ input:-webkit-autofill {
   margin-bottom: 2rem;
   -webkit-box-shadow: 0px 5px 10px 0px black;
           box-shadow: 0px 5px 10px 0px black;
-}
-
-.login .callout-big,
-.contact-form .callout-big {
-  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .login h2,
@@ -12889,30 +12887,115 @@ input:-webkit-autofill {
   color: #323232;
   padding-left: 1rem;
   font-size: 2rem;
+  line-height: 2rem;
 }
 
-.portfolio-content {
+@media screen and (max-width: 39.9375em) {
+  .portfolio-header h2 {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+}
+
+.portfolio-content,
+.portfolio-description {
   padding: 0 2rem;
 }
 
-.portfolio-content h1 {
+.portfolio-content .logo-position,
+.portfolio-description .logo-position {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .portfolio-content .logo-position,
+  .portfolio-description .logo-position {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.portfolio-content .title-position,
+.portfolio-description .title-position {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 1rem;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .portfolio-content .title-position,
+  .portfolio-description .title-position {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.portfolio-content h1,
+.portfolio-description h1 {
   padding: 1rem 0;
+  font-size: 2rem;
 }
 
 .portfolio-content h2,
 .portfolio-content h3,
 .portfolio-content h4,
 .portfolio-content h5,
-.portfolio-content h6 {
+.portfolio-content h6,
+.portfolio-description h2,
+.portfolio-description h3,
+.portfolio-description h4,
+.portfolio-description h5,
+.portfolio-description h6 {
   padding: 0.5rem 0;
 }
 
-.portfolio-content p {
-  padding-bottom: 0.5rem;
+.portfolio-content h1,
+.portfolio-description h1 {
+  font-size: 2rem;
+  line-height: 2rem;
 }
 
-.portfolio-content .portfolio-description p {
-  text-align: justify;
+.portfolio-content h2,
+.portfolio-description h2 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.portfolio-content h3,
+.portfolio-description h3 {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+
+.portfolio-content h4,
+.portfolio-description h4 {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+.portfolio-content h5,
+.portfolio-content h6,
+.portfolio-description h5,
+.portfolio-description h6 {
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+}
+
+.portfolio-content p,
+.portfolio-description p {
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .portfolio-link .portfolio-box,

@@ -3,7 +3,9 @@
 
 Je hebt een mail ontvangen van een mogelijke klant!
 
-## Onderwerp: {{ $email_subject }}
+## Onderwerp: 
+
+{{ $email_subject }}
 
 ## Bericht: 
 
