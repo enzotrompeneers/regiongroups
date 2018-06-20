@@ -44192,6 +44192,7 @@ var render = function() {
     _c(
       "button",
       {
+        staticClass: "button",
         attrs: { type: "submit" },
         on: {
           click: function($event) {

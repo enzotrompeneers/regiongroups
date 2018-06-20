@@ -1,23 +1,28 @@
 @extends('layouts.web.master')
 
 @section('content')
-    <h1>Reset wachtwoord</h1>
+<div id="particles-js"></div>
+<div class="login">
+    <div class="grid-container">
+        <div class="flex-center">
+                <form class="callout" action="{{ route('password.email') }}" method="post">
+                @csrf
+                <h2>Reset wachtwoord</h2>
+                <div class="floated-label-wrapper">
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" value="{{ old('email') }}" name="email" placeholder="E-mailadres" required autofocus>
+                </div>
 
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
+                <button type="submit" class="button expanded">Stuur wachtwoord reset link</button>
+
+                @include('partials.errors')  
+            </form>
+            
         </div>
-    @endif
+    </div>
+</div>
+@endsection
 
-    <form action="{{ route('password.email') }}" method="post">
-        @csrf
-        
-        <label for="email">Email</label>
-        <input type="email" id="email" value="{{ old('email') }}" name="email" placeholder="Email" required autofocus>
-        <br>
-        
-        <button type="submit">Stuur wachtwoord reset link</button>
-    </form>
-
-    @include('partials.errors')  
+@section('post-scripts')
+    <script type="text/javascript" src="{{ URL::asset('js/all-particles.js') }}"></script>
 @endsection
