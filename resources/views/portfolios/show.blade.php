@@ -40,13 +40,13 @@
     <div class="portfolio-content">
         <div class="grid-container">
             <div class="grid-x grid-margin-x grid-margin-y">
-                <div class="cell large-6">
+                <div class="cell">
                     <div class="portfolio-description">
                         <p>{!! $portfolio->description !!}</p>
                     </div>
                 </div>
                 <div class="cell large-6 contact-form">
-                    <form class="callout callout-big" action="#" method="post">
+                    <form class="callout" action="#" method="post">
                         @csrf
                         <h2>Contacteren</h2>
                         <div class="floated-label-wrapper">
@@ -70,92 +70,95 @@
                         @include('partials.errors')  
                     </form>
                 </div>
-
-                <div class="cell medium-6 large-3">
-                    <a class="portfolio-link" href="https://www.google.com/maps/search/?api=1&query={{ $portfolio->street }}%20{{ $portfolio->housenumber }}%20{{ $portfolio->postal_code }}%20{{ $portfolio->city }}%20{{ $portfolio->country }}" target="_blank">
-                        <div class="portfolio-box">
-                            <div class="flex-center">
-                                <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
-                                <p>
-                                    {{ ucfirst($portfolio->street) }} {{ ucfirst($portfolio->housenumber) }}, <br>
-                                    {{ $portfolio->postal_code }} {{ ucfirst($portfolio->city) }} {{ ucfirst($portfolio->country) }}
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="cell medium-6 large-3">
-                    <a class="portfolio-link" href="tel:{{ $portfolio->phone }}" target="_blank">
-                        <div class="portfolio-box">
-                            <div class="flex-center">
-                                <i class="fa fa-phone fa-lg" aria-hidden="true"></i>
-                                <p>
-                                    {{ $portfolio->phone }}
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                    
-                <div class="cell medium-6 large-3">
-                    <a class="portfolio-link" href="mailto:{{ $portfolio->email }}" target="_blank">
-                        <div class="portfolio-box">
-                            <div class="flex-center">
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <p>
-                                    {{ ucfirst($portfolio->email) }}
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                @if(count($portfolio->external))
-                    <div class="cell medium-6 large-3">
-                        <a class="portfolio-link" href="{{ $portfolio->external }}" target="_blank">
-                            <div class="portfolio-box">
-                                <div class="flex-center">
-                                    <i class="fa fa-link" aria-hidden="true"></i>
-                                    <p>
-                                        {{ $portfolio->external }}
-                                    </p>
+                <div class="cell large-6">
+                    <div class="grid-x grid-margin-x grid-margin-y">
+                        <div class="cell medium-6 large-6">
+                            <a class="portfolio-link" href="https://www.google.com/maps/search/?api=1&query={{ $portfolio->street }}%20{{ $portfolio->housenumber }}%20{{ $portfolio->postal_code }}%20{{ $portfolio->city }}%20{{ $portfolio->country }}" target="_blank">
+                                <div class="portfolio-box">
+                                    <div class="flex-center">
+                                        <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+                                        <p>
+                                            {{ ucfirst($portfolio->street) }} {{ ucfirst($portfolio->housenumber) }}, <br>
+                                            {{ $portfolio->postal_code }} {{ ucfirst($portfolio->city) }} {{ ucfirst($portfolio->country) }}
+                                        </p>
+                                    </div>
                                 </div>
+                            </a>
+                        </div>
+        
+                        <div class="cell medium-6 large-6">
+                            <a class="portfolio-link" href="tel:{{ $portfolio->phone }}" target="_blank">
+                                <div class="portfolio-box">
+                                    <div class="flex-center">
+                                        <i class="fa fa-phone fa-lg" aria-hidden="true"></i>
+                                        <p>
+                                            {{ $portfolio->phone }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                            
+                        <div class="cell medium-6 large-6">
+                            <a class="portfolio-link" href="mailto:{{ $portfolio->email }}" target="_blank">
+                                <div class="portfolio-box">
+                                    <div class="flex-center">
+                                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                        <p>
+                                            {{ ucfirst($portfolio->email) }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+        
+                        @if(count($portfolio->external))
+                            <div class="cell medium-6 large-6">
+                                <a class="portfolio-link" href="{{ $portfolio->external }}" target="_blank">
+                                    <div class="portfolio-box">
+                                        <div class="flex-center">
+                                            <i class="fa fa-link" aria-hidden="true"></i>
+                                            <p>
+                                                {{ $portfolio->external }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                        @endif
                     </div>
-                @endif
-
+                </div>
                 
-
-                <div class="cell reviews">
-                    <h3>Review schrijven</h3>
-                    @auth
-                        @include('partials.review')
-                    @else
-                        <p>Om een review te plaatsen moet je <a href="{{route('login')}}">inloggen</a>.</p>
-                    @endauth
-
-                    <h3>Reviews</h3>
-                    @if(count($portfolio->reviews))
-                        @foreach($portfolio->reviews->sortByDesc('created_at') as $review)
-                            <p>
-                                @for ($i = 0; $i < $review->rating; $i++)
-                                    <span class="fa fa-star checked"></span>
-                                @endfor
-
-                                @for ($j = $review->rating; $j < 5; $j++)
-                                    <span class="fa fa-star"></span>
-                                @endfor
-                                <br>
-                                {{ ucfirst($review->body) }} <br>
-                            <br>
-                                Van: {{$review->user->name}} {{ $review->created_at->diffForHumans() }}
-                            </p>
-                        @endforeach
-                    @else
-                        <p>Schrijf de eerste review voor {{ ucfirst($portfolio->name) }}.</p>
-                    @endif
+                <div class="cell">
+                    <div class="reviews">
+                            <h3>Review schrijven</h3>
+                            @auth
+                                @include('partials.review')
+                            @else
+                                <p>Om een review te plaatsen moet je <a href="{{route('login')}}">inloggen</a>.</p>
+                            @endauth
+        
+                            <h3>Reviews</h3>
+                            @if(count($portfolio->reviews))
+                                @foreach($portfolio->reviews->sortByDesc('created_at') as $review)
+                                    <p>
+                                        @for ($i = 0; $i < $review->rating; $i++)
+                                            <span class="fa fa-star checked"></span>
+                                        @endfor
+        
+                                        @for ($j = $review->rating; $j < 5; $j++)
+                                            <span class="fa fa-star"></span>
+                                        @endfor
+                                        <br>
+                                        {{ ucfirst($review->body) }} <br>
+                                    <br>
+                                        Van: {{$review->user->name}} {{ $review->created_at->diffForHumans() }}
+                                    </p>
+                                @endforeach
+                            @else
+                                <p>Schrijf de eerste review voor {{ ucfirst($portfolio->name) }}.</p>
+                            @endif
+                    </div>
                 </div>
             </div>
         </div>

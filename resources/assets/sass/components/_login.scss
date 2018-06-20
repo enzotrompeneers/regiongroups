@@ -27,11 +27,10 @@
         border-radius: 3px;
         margin-bottom: 2rem;
         box-shadow: 0px 5px 10px 0px black;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .callout-big {
-        max-width: none;
-    }
     
     h2 {
         color: $login-h2;
