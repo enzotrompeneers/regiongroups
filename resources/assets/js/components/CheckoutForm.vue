@@ -2,7 +2,7 @@
     <form action="/betaling" method="POST">
         <input type="hidden" name="stripeToken" v-model="stripeToken">
         <input type="hidden" name="stripeEmail" v-model="stripeEmail">
-        <button type="submit" @click.prevent="buy">Abonneer voor 1 jaar</button>
+        <button type="submit" class="button" @click.prevent="buy">Abonneer voor 1 jaar</button>
     </form>
 </template>
 

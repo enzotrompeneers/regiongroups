@@ -245,9 +245,6 @@ $post-item-border-bottom-width: rem-calc(1) !default;
 .portfolio-content {
 	padding: 0 2rem;
 
-	h1, h2, h3, h4, h5, h6 {
-		color: black;
-	}
 	h1 {
 		padding: 1rem 0;
 	}
@@ -313,10 +310,6 @@ $post-item-border-bottom-width: rem-calc(1) !default;
 			border: 1px solid $blue;
 
 		}
-	}
-
-	h3 {
-		color: $gray;
 	}
 
 	p {

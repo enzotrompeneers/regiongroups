@@ -11527,6 +11527,14 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #323232;
+}
+
 h1 {
   font-size: 1.5rem;
   line-height: 1.8rem;
@@ -11635,6 +11643,22 @@ input:-webkit-autofill:focus {
 
 input:-webkit-autofill {
   -webkit-text-fill-color: black !important;
+}
+
+.padding-top {
+  padding-top: 1rem;
+}
+
+.padding-bottom {
+  padding-bottom: 1rem;
+}
+
+.padding-left {
+  padding-left: 1rem;
+}
+
+.full-width {
+  width: 100%;
 }
 
 .header {
@@ -11967,13 +11991,11 @@ input:-webkit-autofill {
   padding-bottom: 0.5rem;
 }
 
-.login .floated-label-wrapper,
-.contact-form .floated-label-wrapper {
+.floated-label-wrapper {
   position: relative;
 }
 
-.login .floated-label-wrapper label,
-.contact-form .floated-label-wrapper label {
+.floated-label-wrapper label {
   background: white;
   color: #282828;
   font-size: 0.75rem;
@@ -11987,8 +12009,7 @@ input:-webkit-autofill {
   z-index: -1;
 }
 
-.login .floated-label-wrapper label.show,
-.contact-form .floated-label-wrapper label.show {
+.floated-label-wrapper label.show {
   opacity: 1;
   top: -0.85rem;
   z-index: 1;
@@ -11996,12 +12017,9 @@ input:-webkit-autofill {
   transition: all 0.15s ease-in;
 }
 
-.login .floated-label-wrapper input[type=text],
-.login .floated-label-wrapper input[type=email],
-.login .floated-label-wrapper input[type=password],
-.contact-form .floated-label-wrapper input[type=text],
-.contact-form .floated-label-wrapper input[type=email],
-.contact-form .floated-label-wrapper input[type=password] {
+.floated-label-wrapper input[type=text],
+.floated-label-wrapper input[type=email],
+.floated-label-wrapper input[type=password] {
   border: none;
   border-bottom: 1px solid #2CA6FC;
   padding: 0.5em;
@@ -12009,25 +12027,20 @@ input:-webkit-autofill {
           box-shadow: none;
 }
 
-.login .floated-label-wrapper input[type=text]:focus,
-.login .floated-label-wrapper input[type=email]:focus,
-.login .floated-label-wrapper input[type=password]:focus,
-.contact-form .floated-label-wrapper input[type=text]:focus,
-.contact-form .floated-label-wrapper input[type=email]:focus,
-.contact-form .floated-label-wrapper input[type=password]:focus {
+.floated-label-wrapper input[type=text]:focus,
+.floated-label-wrapper input[type=email]:focus,
+.floated-label-wrapper input[type=password]:focus {
   border-bottom: 2px solid #2CA6FC;
 }
 
-.login .floated-label-wrapper textarea,
-.contact-form .floated-label-wrapper textarea {
+.floated-label-wrapper textarea {
   border: 1px solid #2CA6FC;
   padding: 0.5em;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.login .floated-label-wrapper textarea:focus,
-.contact-form .floated-label-wrapper textarea:focus {
+.floated-label-wrapper textarea:focus {
   border-bottom: 2px solid #2CA6FC;
 }
 
@@ -12093,6 +12106,10 @@ input:-webkit-autofill {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.search .search-form .control.has-addon .btn-search {
+  min-width: 60px;
 }
 
 .search .search-form .control.has-addon .control-addon {
@@ -12375,6 +12392,10 @@ input:-webkit-autofill {
   border-radius: 3px;
 }
 
+.no-image {
+  background-image: none;
+}
+
 .logo-image-big {
   background-image: url("/img/logo-avatar.svg");
   width: 150px;
@@ -12382,6 +12403,11 @@ input:-webkit-autofill {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.logo-image-big .fa-upload {
+  font-size: 30px;
+  color: #323232;
 }
 
 .portfolios {
@@ -12860,25 +12886,40 @@ input:-webkit-autofill {
 }
 
 .portfolio-header h2 {
-  color: #2CA6FC;
+  color: #323232;
   padding-left: 1rem;
+  font-size: 2rem;
 }
 
-.portfolio-header,
 .portfolio-content {
   padding: 0 2rem;
 }
 
-.portfolio-header .portfolio-description p,
+.portfolio-content h1 {
+  padding: 1rem 0;
+}
+
+.portfolio-content h2,
+.portfolio-content h3,
+.portfolio-content h4,
+.portfolio-content h5,
+.portfolio-content h6 {
+  padding: 0.5rem 0;
+}
+
+.portfolio-content p {
+  padding-bottom: 0.5rem;
+}
+
 .portfolio-content .portfolio-description p {
   text-align: justify;
 }
 
-.portfolio-link .portfolio-box {
+.portfolio-link .portfolio-box,
+.portfolio-link .portfolio-form {
   background: #2CA6FC;
   color: white;
   width: 100%;
-  height: 150px;
   margin-bottom: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12887,17 +12928,28 @@ input:-webkit-autofill {
   position: relative;
 }
 
+.portfolio-link .portfolio-box .flex-center,
+.portfolio-link .portfolio-form .flex-center {
+  width: 100%;
+}
+
+.portfolio-link .portfolio-box .flex-center .fa,
+.portfolio-link .portfolio-form .flex-center .fa {
+  padding-bottom: 2rem;
+  font-size: 50px;
+}
+
+.portfolio-link .portfolio-box {
+  height: 150px;
+}
+
 .portfolio-link .portfolio-box:hover {
   background: #025692;
 }
 
-.portfolio-link .portfolio-box .flex-center {
-  width: 100%;
-}
-
-.portfolio-link .portfolio-box .flex-center .fa {
-  padding: 0.5rem;
-  font-size: 50px;
+.portfolio-link .portfolio-form {
+  height: auto;
+  min-height: 170px;
 }
 
 .reviews {
@@ -12915,10 +12967,6 @@ input:-webkit-autofill {
   -webkit-box-shadow: none;
           box-shadow: none;
   border: 1px solid #2CA6FC;
-}
-
-.reviews h3 {
-  color: #323232;
 }
 
 .reviews p {
@@ -12964,6 +13012,92 @@ input:-webkit-autofill {
 
 .checked.fa-star:before {
   color: gold;
+}
+
+.inputfile {
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+}
+
+.card-profile-stats {
+  border: 1px solid #cacaca;
+  margin: 0 0 1.25rem;
+  padding: 1.25rem;
+  background: #fefefe;
+}
+
+.card-profile-stats .card-profile-stats-intro {
+  text-align: center;
+}
+
+.card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
+  border-radius: 50%;
+  margin: 0 0 1.25rem;
+}
+
+.card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-content p:last-child {
+  margin: 0;
+}
+
+.card-profile-stats .card-profile-stats-container {
+  text-align: center;
+}
+
+.card-profile-stats .card-profile-stats-container .card-profile-stats-statistic {
+  margin: 0 0 1.25rem;
+}
+
+.card-profile-stats .card-profile-stats-container .card-profile-stats-statistic p:last-child {
+  margin: 0;
+}
+
+.card-profile-stats .card-profile-stats-more .card-profile-stats-more-link {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #0a0a0a;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.card-profile-stats .card-profile-stats-more .card-profile-stats-more-content {
+  display: none;
+}
+
+/* Large and up */
+
+@media print, screen and (min-width: 64em) {
+  .card-profile-stats .card-profile-stats-intro {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    text-align: left;
+  }
+
+  .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
+    margin: 0 1.25rem 0 0;
+    max-width: 250px;
+  }
+
+  .card-profile-stats .card-profile-stats-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 
 .cities {
